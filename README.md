@@ -8,6 +8,10 @@ im a lazy developer and i find cheats for roblox
 ```
 DOL Private:
 me and my friends can only have this, dont ask for it lmao
+Devil Hub:
+discontinued serverside script rip
+BirthHub:
+my cringe script discontinued
 ```
 
 ### Contact
