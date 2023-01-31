@@ -25,3 +25,9 @@ You can contact me via my discord: Not Birthday#3486
 ```
 walmart bag
 ```
+
+### Status
+
+```
+taken 😳
+```
