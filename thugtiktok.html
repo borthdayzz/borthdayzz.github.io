@@ -64,6 +64,11 @@
             
             video.src = videoUrl;
             videoPopup.style.display = 'flex';
+            // Play the video
+            video.play().catch(function(error) {
+                // Autoplay might be blocked; handle the error if needed
+                console.error('Autoplay failed:', error);
+            });
         }
 
         // Function to hide the video popup
