@@ -10,24 +10,19 @@
     <meta property="og:image" id="ogImage" />
 
     <script>
-        // Array of random image URLs
         var imageUrls = [
             "https://birthscripts.github.io/picture/thugpictur2.jpg",
             "https://birthscripts.github.io/picture/thugpictur3.jpg",
             "https://birthscripts.github.io/picture/thugpictur4.jpg",
             "https://birthscripts.github.io/picture/thugpictur5.jpg",
             "https://birthscripts.github.io/picture/thugpicture.jpg",
-            // Add more image URLs as needed
         ];
 
-        // Function to get a random image URL
         function getRandomImageUrl() {
             return imageUrls[Math.floor(Math.random() * imageUrls.length)];
         }
-
-        // Set the og:image meta tag with a random image URL on page load
-        document.addEventListener("DOMContentLoaded", function () {
-            document.getElementById("ogImage").content = getRandomImageUrl();
+         document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("ogImage").setAttribute("content", getRandomImageUrl());
         });
     </script>
 
