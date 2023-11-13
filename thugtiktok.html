@@ -28,8 +28,10 @@
     </style>
 </head>
 <body>
+    <!-- Video popups container -->
     <div class="video-popup" id="video-popup">
         <video controls autoplay>
+            <!-- Video source will be dynamically set -->
             Your browser does not support the video tag.
         </video>
     </div>
@@ -39,37 +41,35 @@
         var videos = [
             "https://BirthScripts.github.io/videos/thugitout.mp4",
             "https://BirthScripts.github.io/videos/thugitout2.mp4",
-	    "https://BirthScripts.github.io/videos/thugitout3.mp4",
-	    "https://BirthScripts.github.io/videos/thugitout4.mp4",
-	    "https://BirthScripts.github.io/videos/thugitout5.mp4",
-	    "https://BirthScripts.github.io/videos/thugitout6.mp4",
-	    "https://BirthScripts.github.io/videos/thugitout7.mp4",
-	    "https://BirthScripts.github.io/videos/thugitout8.mp4",
-	    "https://BirthScripts.github.io/videos/thugitout9.mp4",
+            "https://BirthScripts.github.io/videos/thugitout3.mp4",
+            "https://BirthScripts.github.io/videos/thugitout4.mp4",
+            "https://BirthScripts.github.io/videos/thugitout5.mp4",
+            "https://BirthScripts.github.io/videos/thugitout6.mp4",
+            "https://BirthScripts.github.io/videos/thugitout7.mp4",
+            "https://BirthScripts.github.io/videos/thugitout8.mp4",
+            "https://BirthScripts.github.io/videos/thugitout9.mp4",
+            // Add more video URLs as needed
         ];
 
         videos.forEach(function (videoUrl, index) {
-            var videoPopup = videoPopups[index];
+            var videoPopup = document.getElementById('video-popup');
             var video = videoPopup.querySelector('video');
 
-           
             video.src = videoUrl;
 
-          
             function showVideoPopup() {
                 videoPopup.style.display = 'flex';
             }
 
-        
             function hideVideoPopup() {
                 videoPopup.style.display = 'none';
+                // Pause the video when closing the popup
                 video.pause();
             }
 
-        
             window.addEventListener('scroll', function () {
+                // You can adjust the scroll threshold as needed
                 var scrollThreshold = 200;
-
                 var videoIndex = Math.floor(window.scrollY / scrollThreshold);
 
                 if (videoIndex === index) {
