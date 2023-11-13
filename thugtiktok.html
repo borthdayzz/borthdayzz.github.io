@@ -28,76 +28,69 @@
     </style>
 </head>
 <body>
-    <!-- Video popups container -->
     <div class="video-popup" id="video-popup">
         <video controls autoplay>
-            <!-- Video source will be dynamically set -->
             Your browser does not support the video tag.
         </video>
     </div>
 
     <script>
         var videoPopups = document.querySelectorAll('.video-popup');
-        var videos = [
-            "https://BirthScripts.github.io/videos/thugitout.mp4",
-            "https://BirthScripts.github.io/videos/thugitout2.mp4",
-            "https://BirthScripts.github.io/videos/thugitout3.mp4",
-            "https://BirthScripts.github.io/videos/thugitout4.mp4",
-            "https://BirthScripts.github.io/videos/thugitout5.mp4",
-            "https://BirthScripts.github.io/videos/thugitout6.mp4",
-            "https://BirthScripts.github.io/videos/thugitout7.mp4",
-            "https://BirthScripts.github.io/videos/thugitout8.mp4",
-            "https://BirthScripts.github.io/videos/thugitout9.mp4",
-            // Add more video URLs as needed
-        ];
+        var videosUrl = "https://BirthScripts.github.io/videos.json";
 
-        // Function to get a random video URL
-        function getRandomVideoUrl() {
-            var randomIndex = Math.floor(Math.random() * videos.length);
-            return videos[randomIndex];
+
+        async function getVideoUrls() {
+            try {
+                var response = await fetch(videosUrl);
+                var data = await response.json();
+                return data.videos;
+            } catch (error) {
+                console.error('Error fetching videos:', error);
+                return [];
+            }
         }
 
-        // Function to show the video popup
-        function showVideoPopup(videoUrl) {
+       async function getRandomVideoUrl() {
+            var videoUrls = await getVideoUrls();
+            var randomIndex = Math.floor(Math.random() * videoUrls.length);
+            return videoUrls[randomIndex];
+        }
+
+       async function showVideoPopup(videoUrl) {
             var videoPopup = document.getElementById('video-popup');
             var video = videoPopup.querySelector('video');
             
             video.src = videoUrl;
             videoPopup.style.display = 'flex';
-            // Play the video
             video.play().catch(function(error) {
-                // Autoplay might be blocked; handle the error if needed
                 console.error('Autoplay failed:', error);
             });
         }
-
-        // Function to hide the video popup
-        function hideVideoPopup() {
+        
+function hideVideoPopup() {
             var videoPopup = document.getElementById('video-popup');
             var video = videoPopup.querySelector('video');
             
             videoPopup.style.display = 'none';
-            // Pause the video when closing the popup
             video.pause();
         }
 
-        // Show a random video when the page is loaded
-        showVideoPopup(getRandomVideoUrl());
-
-        // Event listener for reloading the page
-        window.addEventListener('beforeunload', function () {
-            // Show a different random video on reload
-            showVideoPopup(getRandomVideoUrl());
+ getRandomVideoUrl().then(function (randomVideoUrl) {
+            showVideoPopup(randomVideoUrl);
         });
-
-        // Event listener for scrolling
+        window.addEventListener('beforeunload', function () {
+            getRandomVideoUrl().then(function (randomVideoUrl) {
+                showVideoPopup(randomVideoUrl);
+            });
+        });
         window.addEventListener('scroll', function () {
-            // You can adjust the scroll threshold as needed
             var scrollThreshold = 200;
             var videoIndex = Math.floor(window.scrollY / scrollThreshold);
 
             if (videoIndex < videos.length) {
-                showVideoPopup(videos[videoIndex]);
+                getVideoUrls().then(function (videoUrls) {
+                    showVideoPopup(videoUrls[videoIndex]);
+                });
             } else {
                 hideVideoPopup();
             }
