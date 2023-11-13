@@ -51,33 +51,51 @@
             // Add more video URLs as needed
         ];
 
-        videos.forEach(function (videoUrl, index) {
+        // Function to get a random video URL
+        function getRandomVideoUrl() {
+            var randomIndex = Math.floor(Math.random() * videos.length);
+            return videos[randomIndex];
+        }
+
+        // Function to show the video popup
+        function showVideoPopup(videoUrl) {
             var videoPopup = document.getElementById('video-popup');
             var video = videoPopup.querySelector('video');
-
+            
             video.src = videoUrl;
+            videoPopup.style.display = 'flex';
+        }
 
-            function showVideoPopup() {
-                videoPopup.style.display = 'flex';
+        // Function to hide the video popup
+        function hideVideoPopup() {
+            var videoPopup = document.getElementById('video-popup');
+            var video = videoPopup.querySelector('video');
+            
+            videoPopup.style.display = 'none';
+            // Pause the video when closing the popup
+            video.pause();
+        }
+
+        // Show a random video when the page is loaded
+        showVideoPopup(getRandomVideoUrl());
+
+        // Event listener for reloading the page
+        window.addEventListener('beforeunload', function () {
+            // Show a different random video on reload
+            showVideoPopup(getRandomVideoUrl());
+        });
+
+        // Event listener for scrolling
+        window.addEventListener('scroll', function () {
+            // You can adjust the scroll threshold as needed
+            var scrollThreshold = 200;
+            var videoIndex = Math.floor(window.scrollY / scrollThreshold);
+
+            if (videoIndex < videos.length) {
+                showVideoPopup(videos[videoIndex]);
+            } else {
+                hideVideoPopup();
             }
-
-            function hideVideoPopup() {
-                videoPopup.style.display = 'none';
-                // Pause the video when closing the popup
-                video.pause();
-            }
-
-            window.addEventListener('scroll', function () {
-                // You can adjust the scroll threshold as needed
-                var scrollThreshold = 200;
-                var videoIndex = Math.floor(window.scrollY / scrollThreshold);
-
-                if (videoIndex === index) {
-                    showVideoPopup();
-                } else {
-                    hideVideoPopup();
-                }
-            });
         });
     </script>
 </body>
