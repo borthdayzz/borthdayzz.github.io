@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #game-board {
+      width: 400px;
+      height: 400px;
+      border: 1px solid black;
+      position: relative;
+    }
+
+    .snake {
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      background-color: green;
+    }
+
+    .coin {
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      background-color: gold;
+    }
+  </style>
+</head>
+<body>
+  <div id="game-board"></div>
+  <p id="score">Score: 0</p>
+
+  <script>
+    var gameBoard = document.getElementById("game-board");
+    var scoreDisplay = document.getElementById("score");
+    var snake = [{ x: 200, y: 200 }];
+    var coin = { x: 0, y: 0 };
+    var direction = "right";
+    var score = 0;
+    var interval;
+
+    function startGame() {
+      createCoin();
+      interval = setInterval(moveSnake, 150);
+      document.addEventListener("keydown", changeDirection);
+    }
+
+    function createCoin() {
+      coin.x = Math.floor(Math.random() * 20) * 20;
+      coin.y = Math.floor(Math.random() * 20) * 20;
+
+      var coinElement = document.createElement("div");
+      coinElement.className = "coin";
+      coinElement.style.left = coin.x + "px";
+      coinElement.style.top = coin.y + "px";
+      gameBoard.appendChild(coinElement);
+    }
+
+    function moveSnake() {
+      var head = Object.assign({}, snake[0]);
+
+      if (direction === "right") {
+        head.x += 20;
+      } else if (direction === "left") {
+        head.x -= 20;
+      } else if (direction === "up") {
+        head.y -= 20;
+      } else if (direction === "down") {
+        head.y += 20;
+      }
+
+      if (head.x === coin.x && head.y === coin.y) {
+        score++;
+        scoreDisplay.textContent = "Score: " + score;
+        gameBoard.removeChild(gameBoard.lastChild);
+        createCoin();
+      } else {
+        snake.pop();
+      }
+
+      if (head.x < 0 || head.x >= 400 || head.y < 0 || head.y >= 400) {
+        gameOver();
+      }
+
+      for (var i = 1; i < snake.length; i++) {
+        if (head.x === snake[i].x && head.y === snake[i].y) {
+          gameOver();
+        }
+      }
+
+      snake.unshift(head);
+      updateGameBoard();
+    }
+
+    function updateGameBoard() {
+      gameBoard.innerHTML = "";
+
+      snake.forEach(function(segment) {
+        var snakeElement = document.createElement("div");
+        snakeElement.className = "snake";
+        snakeElement.style.left = segment.x + "px";
+        snakeElement.style.top = segment.y + "px";
+        gameBoard.appendChild(snakeElement);
+      });
+
+      var coinElement = document.createElement("div");
+      coinElement.className = "coin";
+      coinElement.style.left = coin.x + "px";
+      coinElement.style.top = coin.y + "px";
+      gameBoard.appendChild(coinElement);
+    }
+
+    function changeDirection(event) {
+      if (event.code === "ArrowUp" && direction !== "down") {
+        direction = "up";
+      } else if (event.code === "ArrowDown" && direction !== "up") {
+        direction = "down";
+      } else if (event.code === "ArrowLeft" && direction !== "right") {
+        direction = "left";
+      } else if (event.code === "ArrowRight" && direction !== "left") {
+        direction = "right";
+      }
+    }
+
+    function gameOver() {
+      clearInterval(interval);
+      document.removeEventListener("keydown", changeDirection);
+      alert("Game Over! Your score is " + score);
+    }
+
+    startGame();
+  </script>
+</body>
+</html>
