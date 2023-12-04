@@ -12,13 +12,12 @@
     <title>thug</title>
 </head>
 <body>
-     <div id="randomText">
+    <div id="randomText">
         <p id="displayText">Loading...</p>
     </div>
-
     <script>
         function fetchRandomTexts() {
-            return fetch('texts.json')
+            return fetch('randomTexts.json')
                 .then(response => response.json())
                 .catch(error => {
                     console.error('Error fetching random texts:', error);
