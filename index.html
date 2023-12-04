@@ -1,132 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <style>
-    #game-board {
-      width: 400px;
-      height: 400px;
-      border: 1px solid black;
-      position: relative;
-    }
-
-    .snake {
-      width: 20px;
-      height: 20px;
-      position: absolute;
-      background-color: green;
-    }
-
-    .coin {
-      width: 20px;
-      height: 20px;
-      position: absolute;
-      background-color: gold;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>BirthScripts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        p {
+            margin-bottom: 30px;
+            color: #666;
+        }
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        a button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+        }
+        a button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-  <div id="game-board"></div>
-  <p id="score">Score: 0</p>
-
-  <script>
-    var gameBoard = document.getElementById("game-board");
-    var scoreDisplay = document.getElementById("score");
-    var snake = [{ x: 200, y: 200 }];
-    var coin = { x: 0, y: 0 };
-    var direction = "right";
-    var score = 0;
-    var interval;
-
-    function startGame() {
-      createCoin();
-      interval = setInterval(moveSnake, 150);
-      document.addEventListener("keydown", changeDirection);
-    }
-
-    function createCoin() {
-      coin.x = Math.floor(Math.random() * 20) * 20;
-      coin.y = Math.floor(Math.random() * 20) * 20;
-
-      var coinElement = document.createElement("div");
-      coinElement.className = "coin";
-      coinElement.style.left = coin.x + "px";
-      coinElement.style.top = coin.y + "px";
-      gameBoard.appendChild(coinElement);
-    }
-
-    function moveSnake() {
-      var head = Object.assign({}, snake[0]);
-
-      if (direction === "right") {
-        head.x += 20;
-      } else if (direction === "left") {
-        head.x -= 20;
-      } else if (direction === "up") {
-        head.y -= 20;
-      } else if (direction === "down") {
-        head.y += 20;
-      }
-
-      if (head.x === coin.x && head.y === coin.y) {
-        score++;
-        scoreDisplay.textContent = "Score: " + score;
-        gameBoard.removeChild(gameBoard.lastChild);
-        createCoin();
-      } else {
-        snake.pop();
-      }
-
-      if (head.x < 0 || head.x >= 400 || head.y < 0 || head.y >= 400) {
-        gameOver();
-      }
-
-      for (var i = 1; i < snake.length; i++) {
-        if (head.x === snake[i].x && head.y === snake[i].y) {
-          gameOver();
-        }
-      }
-
-      snake.unshift(head);
-      updateGameBoard();
-    }
-
-    function updateGameBoard() {
-      gameBoard.innerHTML = "";
-
-      snake.forEach(function(segment) {
-        var snakeElement = document.createElement("div");
-        snakeElement.className = "snake";
-        snakeElement.style.left = segment.x + "px";
-        snakeElement.style.top = segment.y + "px";
-        gameBoard.appendChild(snakeElement);
-      });
-
-      var coinElement = document.createElement("div");
-      coinElement.className = "coin";
-      coinElement.style.left = coin.x + "px";
-      coinElement.style.top = coin.y + "px";
-      gameBoard.appendChild(coinElement);
-    }
-
-    function changeDirection(event) {
-      if (event.code === "ArrowUp" && direction !== "down") {
-        direction = "up";
-      } else if (event.code === "ArrowDown" && direction !== "up") {
-        direction = "down";
-      } else if (event.code === "ArrowLeft" && direction !== "right") {
-        direction = "left";
-      } else if (event.code === "ArrowRight" && direction !== "left") {
-        direction = "right";
-      }
-    }
-
-    function gameOver() {
-      clearInterval(interval);
-      document.removeEventListener("keydown", changeDirection);
-      alert("Game Over! Your score is " + score);
-    }
-
-    startGame();
-  </script>
+    <div class="container">
+        <h1>Welcome to BirthScripts</h1>
+        <p>Explore these websites:</p>
+        <div class="btn-container">
+            <a href="https://birthscripts.github.io/thug" target="_blank">
+                <button>Visit Thug</button>
+            </a>
+            <a href="https://smile.birthdayx.repl.co/" target="_blank">
+                <button>Visit Avery Dock</button>
+            </a>
+        </div>
+    </div>
 </body>
 </html>
