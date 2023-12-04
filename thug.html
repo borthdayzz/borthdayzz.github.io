@@ -12,15 +12,15 @@
     <title>thug</title>
 </head>
 <body>
-
-<div id="randomText">
-    <p id="displayText">Loading...</p>
-</div>
+    <div id="randomText">
+        <p id="displayText">Loading...</p>
+    </div>
 
     <script>
-    // Array of random texts
-    const randomTexts = [
-        "WE NEVER GETTING A SIGNIFICANT OTHER WITH THIS ONE🗣️🗣️🔥",
+        document.addEventListener('DOMContentLoaded', function() {
+            const randomTexts = [
+                // Your array of random texts
+         "WE NEVER GETTING A SIGNIFICANT OTHER WITH THIS ONE🗣️🗣️🔥",
         "WE ARE NOT OKAY BOYS 🗣️🙏💯",
         "GETTING RID OF MY SCHIZOPHRENIA WITH THIS ONE🗣️🔥",
         "CAN'T LET THE BOYS CATCH ME HERE 🗣🔥🙏",
@@ -32,7 +32,7 @@
         "WE GETTING OUT THE BURNER ACCOUNT FOR THIS ONE (I CANT STOP LISTENING TO THESE HELP) 🗣 🗣 🗣 🗣 🗣 🔥 🔥 🔥",
         "not even asmr  drowns out the lonely feeling anymore🗣🗣🔥💯💯🗣🔥🔥",
         "even asmr can't cure my loneliness‼️🗣️🗣️🔥🔥💯🔥🔛🔝",
-        "I LOVE THE CONCEPT OF BEING LOVED BY THE OPPOSITE GENDER ALSO KNOWN AS "WOMEN" YOU CANT GET LOWER THAN ME 🗣🗣🗣🔥🔥🔥🔥🔥🔥🔥🔥🔥",
+        "I LOVE THE CONCEPT OF BEING LOVED BY THE OPPOSITE GENDER ALSO KNOWN AS WOMEN YOU CANT GET LOWER THAN ME 🗣🗣🗣🔥🔥🔥🔥🔥🔥🔥🔥🔥",
         "I CANNOT THUG IT OUT ANYMORE 🔥🔥🗣️🗣️🔥💯🗣️🔥💯🗣️🗣️🔥",
         "Every day the loneliness only increases 🗣️🔥🔥‼️‼️",
         "MY BLOODLINE ENDS WITH ME 🗣️🗣️🗣️🔥🔥🔥🔥💯💯💯💯💯",
@@ -40,20 +40,19 @@
         "THE ROAD LOOKING REALLY WARM🗣🗣🗣🗣🔥🔥🔥🔥🔥",
         "WE AINT MAKING IT TO THE END OF THE WEEK🔥🔥🔥🔥",
         "I AM AT THE LOWEST POINT OF MY LIFE RIGHT NOW 🗣️🗣️🗣️🗣️ 🔥🔥🔥🔥🔥🔥🔥",
-        "ITS ALL DOWNHILL FROM HERE🗣️🗣️🗣️🔥🔥🔥🔥"
-        // Add more random texts here
-    ];
+        "ITS ALL DOWNHILL FROM HERE🗣️🗣️🗣️🔥🔥🔥🔥",
+            ];
 
-    // Function to display random text
-    function displayRandomText() {
-        const randomIndex = Math.floor(Math.random() * randomTexts.length);
-        const displayElement = document.getElementById('displayText');
-        displayElement.textContent = randomTexts[randomIndex];
-    }
+            function displayRandomText() {
+                const randomIndex = Math.floor(Math.random() * randomTexts.length);
+                const displayElement = document.getElementById('displayText');
+                displayElement.textContent = randomTexts[randomIndex];
+            }
 
-    // Call the function to display random text when the page loads
-    displayRandomText();
-</script>
+            displayRandomText();
+        });
+    </script>
+
 
 <video width="640" height="360" controls>
     <source src="https://thug.birthdayx.repl.co/thug.mp4" type="video/mp4">
