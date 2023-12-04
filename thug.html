@@ -12,103 +12,28 @@
     <title>thug</title>
 </head>
 <body>
-    <div id="randomText">
+     <div id="randomText">
         <p id="displayText">Loading...</p>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const randomTexts = [
-                // Your array of random texts
-        "WE NEVER GETTING A SIGNIFICANT OTHER WITH THIS ONE🗣️🗣️🔥",
-        "WE ARE NOT OKAY BOYS 🗣️🙏💯",
-        "GETTING RID OF MY SCHIZOPHRENIA WITH THIS ONE🗣️🔥",
-        "CAN'T LET THE BOYS CATCH ME HERE 🗣🔥🙏",
-        "MODS REMOVE OUR DEPRESSIONS THANK YOU 🗣🗣🗣🗣🔥🔥🔥🔥🔥🔥",
-        "We're at the most desperate time of our lives boys 🔥🔥💯💯🙏🙏💀💀",
-        "CANT GET CAUGHT LIKING THIS ONE 💯💯🔥🗣🗣🗣",
-        "I AINT NEVER GETTIN THIS TREATMENT ‼‼💯🗣🗣",
-        "AT THIS POINT I JUST WANNA FEEL LOVED 🗣️🗣️🗣️🗣️🗣️🗣️🔥🔥🔥🔥🔥🔥",
-        "WE GETTING OUT THE BURNER ACCOUNT FOR THIS ONE (I CANT STOP LISTENING TO THESE HELP) 🗣 🗣 🗣 🗣 🗣 🔥 🔥 🔥",
-        "not even asmr  drowns out the lonely feeling anymore🗣🗣🔥💯💯🗣🔥🔥",
-        "even asmr can't cure my loneliness‼️🗣️🗣️🔥🔥💯🔥🔛🔝",
-        "I LOVE THE CONCEPT OF BEING LOVED BY THE OPPOSITE GENDER ALSO KNOWN AS WOMEN YOU CANT GET LOWER THAN ME 🗣🗣🗣🔥🔥🔥🔥🔥🔥🔥🔥🔥",
-        "I CANNOT THUG IT OUT ANYMORE 🔥🔥🗣️🗣️🔥💯🗣️🔥💯🗣️🗣️🔥",
-        "Every day the loneliness only increases 🗣️🔥🔥‼️‼️",
-        "MY BLOODLINE ENDS WITH ME 🗣️🗣️🗣️🔥🔥🔥🔥💯💯💯💯💯",
-        "THAT ROPE IN MY GARAGE BE LOOKING FIIIINE 🔥🔥🗣️🗣️💯💯",
-        "THE ROAD LOOKING REALLY WARM🗣🗣🗣🗣🔥🔥🔥🔥🔥",
-        "WE AINT MAKING IT TO THE END OF THE WEEK🔥🔥🔥🔥",
-        "I AM AT THE LOWEST POINT OF MY LIFE RIGHT NOW 🗣️🗣️🗣️🗣️ 🔥🔥🔥🔥🔥🔥🔥",
-        "ITS ALL DOWNHILL FROM HERE🗣️🗣️🗣️🔥🔥🔥🔥",
-        "WE'VE REALLY HIT ROCK BOTTOM WITH THIS ONE 🔥🗣️🗣️🔥🗣️💥💥🔥🔥🗣️🗣️",
-	    "WE NEVER FINDING REAL LOVE WITH THIS ONE 🗣🗣🗣🔥🔥🔥🔥🔥🔥🔥🔥",
-	    "WE RUNNING TO DEPRESSION WITH THIS ONE🗣️🗣️🔥🔥🔥",
-	    "WE HITTING DEPRESSION TONIGHT!🔥🔥🔥🗣️🗣️🗣️🗣️🔥🗣️",
-	    "WE WILL FEEL PATHETIC IN RETROSPECT WITH THIS ONE. 🔥🔥🗣🗣🗣💥💥",
-	    "I AM NEVER GONNA BE THIS LUCKY 🗣️🔥",
-	    "THE SHOTGUN LOOKING REAL USABLE RN WITH THIS ONE🗣️🔥",
-	    "WE SPEEDRUNNIN DEPRESSION AND DEPRIVATION WITH THIS ONE 🔥🔥🔥🗣️🗣️🗣️💯💯💯",
-	    "WHAT IS LOVE🗣️🔥",
-	    "I HAVE REACHED THE LOWEST OF THE LOW 🗣🗣🗣💯💯💯🔥🔥🔥☝️☝️☝️☝️",
-	    "I may prefer wholesome, but this is more than enough to make me tear up⁉️⁉️",
-	    "🔥🔥🔥🔥WE AINT GETTING ANY LOWER TODAY WITH THIS ONE BOYS🔥🔥🔥🔥🔥",
-	    "THE CHANCES OF THIS HAPPENIN BE LOWERING WITH THIS ONE 🔥🔥🔥💯💯💯🗣️🗣️🗣️",
-	    "CRYING MYSELF TO SLEEP TONIGHT WITH THIS ONE 🔥🔥🗣🗣",
-	    "WE SLEEPING COZY TONIGHT WITH THIS ONE🗣️🔥🔥",
-	    "STILL KEEPING IT TOGETHER WITH THIS ONE 🗣🗣🗣🔥🔥🔥",
-	    "WE SLEEPIN ALONE AGAIN WITH THIS ONE🗣️🗣️🗣️🗣️🙏🙏",
-	    "THE VOICES ARE BACK! HELP! 🗣🗣🗣",
-	    "THE TEARS ARENT STOPPING 🗣️🔥🔥💯💯💯",
-	    "YUP‼️I think the voices are catching to me again 🔥😮‍💨🗣️🗣️",
-	    "WE REACHING A NEW LOW WITH THIS ONE BOYS 🔥🔥🗣🗣🗣",
-	    "CRYING TO SLEEP WITH THIS ONE 🔥🗣️🗣️🔥🔥",
-	    "IDK HOW MUCH LONGER I CAN THUG IT OUT 🗣️🔥💯💯",
-	    "I AM ABOUT TO OFF MYSELF WITH THIS ONE 🗣🔥🔥🔥",
-	    "WE GETTING OUT OF THE DEPTHS FROM DEEPWOKEN WITH THIS ONE🗣️🔥🔥🔥🔥🔥🔥💯💯💯💯",
-	    "JUMPING OFF A BRIDGE WHILE MISSING MY EX WITH THIS ONE🔥🔥🗣🗣",
-	    "DRIVING STRAIGHT INTO A TREE AT 180 WIT THIS ONE 🗣🗣💯💯🔥🔥",
-	    "EVERYDAY IS JUST THE SAME DAY BUT WORSE 🗣️🗣️🔥🔥🔥‼️‼️‼️‼️‼️",
-	    "THE HOLE ONLY GOES AS DEEP AS YOU LET IT. IM STILL GOING DOWN 🙏🙏🙏💯💯💯💯🔥🔥🔥🔥🔥",
-	    "I HAVE VERY LOW SELF-ESTEEM  🗣️🗣️🔥🔥",
-	    "I CANT TAKE IT ANYMORE 🗣️🗣️🗣️🗣️",
-	    "WE SHUTTING OUT THE SLEEP PARALYSIS DEMONS WITH THIS ONE 💪💪💪🗣️🗣️🗣️‼️‼️‼️🔥🔥🔥",
-	    "FORGET ROCK BOTTOM WE AT THE CENTER OF THE EARTH 🗣️🔥🔥💯",
-	    "IM NEVER FINDING LOVE🗣️🔥🔥💯💯💯💯😭🙏🙏🇺🇸",
-	    "Just got out the mental hospital we up 💯🗣️‼️",
-	    "I HATE MYSELF 🗣🗣🔥🔥💪💪",
-	    "WE FIGHTING THE INSOMNIA WITH THIS ONE LADS 💪💪💪🗣️🗣️🗣️‼️‼️‼️🔥🔥🔥",
-	    "WE BOUTTA HIT A NEW PR WITH THIS ONE BOYS (WE WILL ALL DIE ALONE EITHERWAY)🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥",
-	    "SLEEPING ON THE ROAD TONIGHT 🔥🔥🗣",
-	    "depression getting out of the way with this one 🔥🔥🗣🗣",
-	    "DEFENDING MYSELF FROM THE VOICES WITH THIS ONE💪💪🔥🔥🔥🔥🔥🔥🔥🔥🔥",
-	    "🗣🗣🗣The suicidal ideation is STRONG listening to this! I can not keep thuggin it out🔥🔥🔥",
-	    "The voices gonna make me peel my skin off 🗣️💯🔥",
-	    "RAHHHHH THE CUT FINNA GO CRAZYYY🗣🗣🗣🔥💯🔥💯🔥🔥💯🔥💯🔥💯🔥💯🔥🔥🔥🔥💯💯🔥💯🔥🔥💯🔥💯🔥💯🔥💯🔥💯🔥💯💯🔥(i really hope it turn out good)",
-	    "ROCK BOTTOM WITH THIS ONE🔥🔥🗣🗣🗣‼‼‼",
-	    "We shedding tears with this one🗣💯💯💦",
-	    "HOPE IS NEAR WITH THIS ONE 🙏 🙏 🗣️",
-	    "I MISS HER 🗣️🗣️‼️‼️‼️‼️🔥🔥🔥🔥",
-	    "BOYS LETS BE REAL, THE ONLY GHOSTS WHO’D FLIRT WITH US WOULD BE THE ONES IN OUR SLEEP 🗣️💯💯💯💯🗣️🗣️🗣️",
-	    "THUGGING IT OUT WITH THIS ONE 🗣️🗣️🔥🔥🔥💯💯💯",
-	    "FINALLY SOMETHING TO LISTEN TILL I SLEEP🗣️🗣️🗣️🗣️🗣️🗣️",
-	    "we making it out of social society with this one💯💯💯💯🗣🗣🗣🔥🔥🔥🔥🔥🔥🔥💯🗣🔥💯🗣🔥💯🔥🗣💯🔥🗣🔥💯🔥🗣🔥🗣🔥💯",
-	    "MY DOWNFALL ARE GETTING MORE AND MORE EVERY DAY 🗣🗣🗣🗣🗣🔥🔥🔥🔥🔥🗿🗿🗿🗿🗿🗿",
-	    "It is it what is but we making it throught the night with this one!!!🔥🗣🔥🔥🔥🔥🗣🗣🗣🔥🔥🔥🔥🗣🗣🗣🔥🔥🔥",
-	    "WE WERE AT ROCK BOTTOM BUT NOW ITS TIME TO DIG DEEPER🔥🔥‼️‼️🗣️🗣️‼️‼️🗣️🗣️‼️‼️🔥🔥🔥",
-	    "Keeping me pushing through the struggles and pain of my mortal coil delaying the inevitable end to my existence 🗣🗣🗣🔥🔥💯💯‼‼‼",
-            ];
-
-            function displayRandomText() {
+        function fetchRandomTexts() {
+            return fetch('texts.json')
+                .then(response => response.json())
+                .catch(error => {
+                    console.error('Error fetching random texts:', error);
+                    return [];
+                });
+        }
+        function displayRandomText() {
+            fetchRandomTexts().then(randomTexts => {
                 const randomIndex = Math.floor(Math.random() * randomTexts.length);
                 const displayElement = document.getElementById('displayText');
-                displayElement.textContent = randomTexts[randomIndex];
-            }
-
-            displayRandomText();
-        });
+                displayElement.textContent = randomTexts[randomIndex].text;
+            });
+        }
+        displayRandomText();
     </script>
-
 
 <video width="640" height="360" controls>
     <source src="https://thug.birthdayx.repl.co/thug.mp4" type="video/mp4">
