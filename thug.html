@@ -17,7 +17,7 @@
     </div>
     <script>
         function fetchRandomTexts() {
-            return fetch('randomTexts.json')
+            return fetch('texts.json')
                 .then(response => response.json())
                 .catch(error => {
                     console.error('Error fetching random texts:', error);
