@@ -12,82 +12,36 @@
     <title>BirthScripts</title>
     <style>
         body {
+            font-family: Arial, sans-serif;
             margin: 0;
-            overflow: hidden;
-        }
-        
-        .container {
-            position: relative;
-            height: 100vh;
-            background-color: black;
-        }
-        
-        .tree {
-            position: absolute;
-            animation: rain 5s linear infinite;
-        }
-
-        @keyframes rain {
-            0% {
-                transform: translateY(-100px);
-            }
-            100% {
-                transform: translateY(120vh);
-            }
-        }
-        .btn-wrapper {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: black;
-            padding: 15px 25px;
-            border: 2px solid white;
-            border-radius: 5px;
-        }
-
-        .btn-wrapper button {
-            color: white;
-            font-size: 24px;
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-
-        /* main style */
-        .birth-container {
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             background-color: #f5f5f5;
         }
-
-        .birth-content {
+        .container {
             text-align: center;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             background-color: #fff;
         }
-
-        .birth-content h1 {
+        h1 {
             margin-bottom: 20px;
             color: #333;
         }
-
-        .birth-content p {
+        p {
             margin-bottom: 30px;
             color: #666;
         }
-
-        .birth-content .btn-container {
+        .btn-container {
             display: flex;
             justify-content: center;
             gap: 20px;
         }
-
-        .birth-content a button {
+        a button {
             padding: 10px 20px;
             border: none;
             border-radius: 4px;
@@ -97,85 +51,23 @@
             color: #fff;
             text-decoration: none;
         }
-
-        .birth-content a button:hover {
+        a button:hover {
             background-color: #0056b3;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const container = document.querySelector('.container');
-                const numTrees = 20;
-
-                for (let i = 0; i < numTrees; i++) {
-                    const tree = document.createElement('img');
-                    tree.src = 'https://birthscripts.github.io/images/tree.png';
-                    tree.alt = 'Christmas Tree';
-                    tree.classList.add('tree');
-                    tree.style.left = `${Math.random() * 100}%`;
-                    tree.style.animationDuration = `${Math.random() * 3 + 2}s`;
-                    tree.style.width = `${Math.random() * 50 + 30}px`;
-                    container.appendChild(tree);
-                }
-                function replaceWithBirthScripts() {
-                    container.innerHTML = `
-                        <div class="birth-container">
-                            <div class="birth-content">
-                                <h1>Welcome to BirthScripts</h1>
-                                <p>Explore these websites:</p>
-                                <div class="btn-container">
-                                    <a href="https://birthscripts.github.io/thug" target="_blank">
-                                        <button>Visit Thug</button>
-                                    </a>
-                                    <a href="https://smile.birthdayx.repl.co/" target="_blank">
-                                        <button>Visit Avery dock</button>
-                                    </a>
-				    <a href="https://birthscripts.github.io/countdown" target="_blank">
-                                        <button>Visit Christmas Countdown</button>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                }
-                const visitMainWebsiteBtn = document.querySelector('#visitMainWebsiteBtn');
-                visitMainWebsiteBtn.addEventListener('click', replaceWithBirthScripts);
-            });
-        </script>
-        <div class="btn-wrapper">
-            <button id="visitMainWebsiteBtn">Visit Main Website</button>
+        <h1>Welcome to BirthScripts</h1>
+        <p>Explore these websites:</p>
+        <div class="btn-container">
+            <a href="https://birthscripts.github.io/thug" target="_blank">
+                <button>Visit Thug</button>
+            </a>
+            <a href="https://birthscripts.github.io/averyy" target="_blank">
+                <button>Visit Avery Dock</button>
+            </a>
         </div>
     </div>
-  
 </body>
 </html>
-
-<audio id="myAudio" autoplay loop>
-  <source src="" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
-
-<script>
-  var musicSources = [
-    'https://birthscripts.github.io/music/alliwant.mp3',
-    'https://birthscripts.github.io/music/anuc.mp3',
-    'https://birthscripts.github.io/music/chestnuts.mp3',
-    'https://birthscripts.github.io/music/letitsnow.mp3',
-    'https://birthscripts.github.io/music/santaclouse.mp3',
-    'https://birthscripts.github.io/music/santatellme.mp3',
-    'https://birthscripts.github.io/music/sus.mp3',
-  ];
-
-  function playRandomMusic() {
-    var audioElement = document.getElementById('myAudio');
-    var randomIndex = Math.floor(Math.random() * musicSources.length);
-    audioElement.src = musicSources[randomIndex];
-    audioElement.load();
-    audioElement.play();
-  }
-
-  window.onload = playRandomMusic;
-</script>
