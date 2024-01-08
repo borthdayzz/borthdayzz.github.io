@@ -1,113 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Christmas Countdown</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 20px;
-            transition: background-color 0.3s, color 0.3s;
-        }
+  <title>My Birthday</title>
+  <script>
+    function updateCountdown() {
+      var birthday = new Date("January 17, 2024 00:00:00").getTime()
+      var now = new Date().getTime();
+      var difference = birthday - now;
 
-        .countdown {
-            font-size: 36px;
-            margin-top: 50px;
-            color: #333;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: inline-block;
-            transition: background-color 0.3s, color 0.3s;
-        }
+      var days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-        .countdown-title {
-            font-size: 24px;
-            margin-bottom: 10px;
-            color: #555;
-        }
+      document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+        + minutes + "m " + seconds + "s ";
 
-        .countdown-timer {
-            font-size: 28px;
-            color: #e74c3c;
-        }
-
-        .merry-christmas {
-            font-size: 36px;
-            margin-top: 50px;
-            color: #e74c3c;
-        }
-
-        .toggle-btn {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border: none;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
-    </style>
+      if (difference < 0) {
+        clearInterval(updateInterval);
+        document.getElementById("countdown").innerHTML = "It's my birthday!";
+      }
+    }
+    var updateInterval = setInterval(updateCountdown, 1000);
+  </script>
 </head>
 <body>
-
-<div class="countdown" id="countdown">
-    <div class="countdown-title">Countdown to Christmas:</div>
-    <div class="countdown-timer"></div>
-</div>
-
-<button class="toggle-btn" onclick="toggleTheme()">Toggle Theme</button>
-
-<script>
-    let isDarkMode = false;
-
-    function startCountdown() {
-        const christmasDate = new Date("December 25, 2023 00:00:00").getTime();
-        const countdown = setInterval(function () {
-            const now = new Date().getTime();
-            const distance = christmasDate - now;
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            const countdownElement = document.querySelector(".countdown-timer");
-            if (countdownElement) {
-                countdownElement.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-
-                if (distance < 0) {
-                    clearInterval(countdown);
-                    countdownElement.parentNode.innerHTML = "<div class='merry-christmas'>Merry Christmas!</div>";
-                }
-            }
-        }, 1000);
-    }
-
-    function toggleTheme() {
-        const body = document.body;
-        const countdown = document.querySelector(".countdown");
-
-        if (isDarkMode) {
-            body.style.backgroundColor = "#fff";
-            body.style.color = "#333";
-            countdown.style.backgroundColor = "#fff";
-            countdown.style.color = "#333";
-        } else {
-            body.style.backgroundColor = "#333";
-            body.style.color = "#fff";
-            countdown.style.backgroundColor = "#333";
-            countdown.style.color = "#fff";
-        }
-
-        isDarkMode = !isDarkMode;
-    }
-
-    window.onload = function () {
-        startCountdown();
-    };
-</script>
-
+  <h1>Birthday Countdown</h1>
+  <p>Countdown to January 17, 2024:</p>
+  <div id="countdown"></div>
 </body>
 </html>
