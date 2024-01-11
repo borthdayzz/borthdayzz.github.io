@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bad Apple</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    #myVideo {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      width: 320px;
+      height: 240px;
+    }
+
+    #content {
+      position: relative;
+      z-index: 1;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+  <script defer src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script defer>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (typeof jQuery === 'undefined') {
+        console.error('Error: jQuery is not loaded. Make sure the script tag for jQuery is included.');
+        return;
+      }
+      function updateBackgroundColor() {
+        var video = document.getElementById("myVideo");
+
+        if (!video) {
+          console.error('Error: Video element not found.');
+          return;
+        }
+
+        var canvas = document.createElement("canvas");
+        var context = canvas.getContext("2d");
+
+        if (video.readyState >= 2 && video.videoWidth > 0 && video.videoHeight > 0) {
+          canvas.width = video.videoWidth;
+          canvas.height = video.videoHeight;
+
+          context.drawImage(video, 0, 0, canvas.width, canvas.height);
+          var imageData = context.getImageData(0, 0, canvas.width, canvas.height).data;
+          var bgColor = calculateAverageColor(imageData);
+          document.body.style.backgroundColor = bgColor;
+        }
+      }
+
+      function calculateAverageColor(data) {
+        var r = 0,
+          g = 0,
+          b = 0;
+
+        for (var i = 0; i < data.length; i += 4) {
+          r += data[i];
+          g += data[i + 1];
+          b += data[i + 2];
+        }
+
+        r /= data.length / 4;
+        g /= data.length / 4;
+        b /= data.length / 4;
+
+        return "rgb(" + Math.floor(r) + "," + Math.floor(g) + "," + Math.floor(b) + ")";
+      }
+
+      function onVideoPlay() {
+        function update() {
+          updateBackgroundColor();
+          requestAnimationFrame(update);
+        }
+
+        update();
+      }
+
+      $(document).ready(function () {
+        var video = document.getElementById("myVideo");
+
+        if (video) {
+          video.addEventListener("play", onVideoPlay);
+        }
+      });
+    });
+  </script>
+</head>
+
+<body>
+
+  <video id="myVideo" controls crossorigin="anonymous">
+    <source src="https://birthscripts.github.io/videos/badapple.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div id="content">
+    <h1>Bad Apple Test</h1>
+    <p>Made by borthday</p>
+  </div>
+
+</body>
+
+</html>
