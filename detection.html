@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internet Status Check Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 100px;
+        }
+
+        #message {
+            font-size: 24px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="message"></div>
+
+    <script>
+        function checkInternetConnection() {
+            var messageElement = document.getElementById("message");
+            if (navigator.onLine) {
+                messageElement.innerHTML = "You are connected to the internet.";
+            } else {
+                messageElement.innerHTML = "Internet not available. Please get internet.";
+            }
+        }
+        checkInternetConnection();
+        window.addEventListener('online', checkInternetConnection);
+        window.addEventListener('offline', checkInternetConnection);
+    </script>
+
+</body>
+</html>
