@@ -5,11 +5,143 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BirthX</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<link rel="stylesheet" href="https://raw.githubusercontent.com/BirthScripts/BirthScripts.github.io/main/css/birthx.css">
+<style>
+  body {
+    background: linear-gradient(135deg, #292929, #000000);
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  #clickPrompt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-size: 24px;
+  }
+  .container {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    max-width: 900px;
+    width: 90%;
+    margin: 50px auto;
+    padding: 40px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, #292929, #000000);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+  }
+  .show {
+    opacity: 1;
+  }
+  h1 {
+    margin-bottom: 20px;
+    font-size: 2em;
+    font-weight: bold;
+  }
+  p {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+  }
+  .username {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  .profile-picture {
+    display: block;
+    margin-bottom: 20px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 4px solid #ff5555;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+  }
+  .profile-picture:hover {
+    transform: scale(1.1);
+  }
+  .music-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .music-controls button {
+    margin: 0 10px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+  }
+  .music-controls button:hover {
+    color: #ff5555;
+  }
+  #volumeControl {
+    width: 100px;
+    margin: 0 10px;
+    cursor: pointer;
+  }
+  #volumeControl::-webkit-slider-thumb {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #ff5555;
+  }
+  #volumeControl::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #ff5555;
+  }
+  .social-icons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  .social-icons a {
+    margin: 0 10px;
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+  }
+  .social-icons a:hover {
+    transform: scale(1.1);
+  }
+
+  /* Responsive Styles */
+  @media only screen and (max-width: 600px) {
+    .container {
+      padding: 20px;
+    }
+    
+    .profile-picture {
+      width: 150px;
+      height: 150px;
+    }
+    
+    .social-icons a {
+      font-size: 20px;
+    }
+  }
+</style>
+
 <meta content="Barf" property="og:title" />
 <meta content="epic bio" property="og:description" />
 <meta content="https://birthscripts.github.io/bio" property="og:url" />
-<meta content="https://birthscripts.github.io/images/segma.jpg" property="og:image" />
+<meta content="https://birthscripts.github.io/images/uncle2.png" property="og:image" />
 <meta content="#ff5555" data-react-helmet="true" name="theme-color" />
 </head>
 <body>
@@ -18,7 +150,7 @@
 
 <div class="container" id="bioContainer">
   <h1>Birthday</h1>
-  <img class="profile-picture" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Profile Picture">
+  <img class="profile-picture" src="https://birthscripts.github.io/images/uncle2.png" alt="Profile Picture">
   <p>i script HTML, Lua, and JS</p>
   <p class="username">Barfday</p>
   
