@@ -8,12 +8,12 @@ const bioContainer = document.getElementById('bioContainer');
 
 let currentSongIndex = 0;
 const songs = [
-    'https://birthscripts.github.io/music/redrum.mp3',
-    'https://birthscripts.github.io/music/luv_drug.mp3',
-    'https://birthscripts.github.io/music/cerrero_hollywood.mp3',
-    'https://birthscripts.github.io/music/rich.mp3',
-    'https://birthscripts.github.io/music/club.mp3',
-    'https://birthscripts.github.io/music/carnival.mp3'
+    'music/redrum.mp3',
+    'music/luv_drug.mp3',
+    'music/cerrero_hollywood.mp3',
+    'music/rich.mp3',
+    'music/club.mp3',
+    'music/carnival.mp3'
 ];
 
 function playCurrentSong() {
