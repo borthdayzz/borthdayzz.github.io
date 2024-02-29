@@ -5,39 +5,85 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="images/uncle.png">
   <title>avery</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+    #showButton {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #showButton:hover {
+      background-color: #0056b3;
+    }
+    .content {
+      margin-top: 20px;
+    }
+    .content h1 {
+      margin-bottom: 10px;
+      font-size: 20px;
+      color: #333;
+    }
+    .content img {
+      max-width: 100%;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+  </style>
 </head>
 <body>
 
-  <button onclick="playMusic()">click me to show everything</button>
+  <button id="showButton">Click me to show everything</button>
+
+  <div class="content"></div>
 
   <script>
     function playMusic() {
-      var musicUrl = "https://birthscripts.github.io/music/lol.mp3";
-      var audio = new Audio(musicUrl);
+      const musicUrl = "https://birthscripts.github.io/music/lol.mp3";
+      const audio = new Audio(musicUrl);
       audio.play();
       showContent();
     }
 
     function showContent() {
-      document.body.innerHTML += `
-        <h1>avery sent this thighs for mod in pistons server lol</h1>
-        <img src="https://cdn.discordapp.com/attachments/1179945316678635601/1212561948831387658/Adpi4pi.jpg?ex=65f24950&is=65dfd450&hm=e4d078b857a3396e8e4040aa4400265342c60aa8bc1aa947baa33178c4681f72&" alt="Embedded Image">
-        <h1>avery face (why censor mouth nigga)</h1>
-        <img src="https://cdn.discordapp.com/attachments/1179945316678635601/1212561949116596264/888yN79.png?ex=65f24950&is=65dfd450&hm=e7bcc6faef7e61084887f1a33ac71a64fb308526b14c87d481dbd1838a61d618&" alt="Embedded Image">
-        <h1>tf is this lmao</h1>
-        <img src="https://cdn.discordapp.com/attachments/1179945316678635601/1212561948294778950/nUn5XOo.png?ex=65f24950&is=65dfd450&hm=5e66eaa2fa2e3597ff8e6f5ad86d7eb5292e50311f89a00582a7d910aa7341c9&" alt="Embedded Image">
-        <h1>avery emo also cencored armpits, prob with hair yea</h1>
-        <img src="https://cdn.discordapp.com/attachments/1179945316678635601/1212562226020483123/WUk4DBh.png?ex=65f24993&is=65dfd493&hm=8b590730d9341a0de9ba58340cc9053cdfefe7d499090414efafc04e19955c19&" alt="Embedded Image">
-        <h1>AVERY PEDO</h1>
-        <img src="https://cdn.discordapp.com/attachments/1179945316678635601/1212561951222140968/wNkBDs1.png?ex=65f24951&is=65dfd451&hm=27e830184a0f6c34ee89d1abe9ca75792a1708a82d4889e9cf1b011f316f3901&" alt="Embedded Image">
-        <h1>woah</h1>
-        <img src="https://cdn.discordapp.com/attachments/1179945316678635601/1212561950849114133/1ynVeka.png?ex=65f24951&is=65dfd451&hm=d859596993aa9c009e6148b11c0073297cb429dcc0db275b437d8220951de2a6&" alt="Embedded Image">
-        <h1>wtf bro</h1>
-        <img src="https://cdn.discordapp.com/attachments/1179945316678635601/1212561951670927400/XbwcQJt.png?ex=65f24951&is=65dfd451&hm=e61dff48e84257f50951654b6f9975cee263f52952a1837bc8214d0e6bf492e0&" alt="Embedded Image">
-        <h1>ayo</h1>
-        <img src="https://cdn.discordapp.com/attachments/1179945316678635601/1212561950073163776/1I2426B.jpg?ex=65f24951&is=65dfd451&hm=f4d423ceb1648152354313b2375e1e83d696cfcb237289a480a35c10e4351955&" alt="Embedded Image">
-      `;
+      const content = [
+        {title: "avery sent this thighs for mod in pistons server lol", imageUrl: "https://cdn.discordapp.com/attachments/1179945316678635601/1212561948831387658/Adpi4pi.jpg?ex=65f24950&is=65dfd450&hm=e4d078b857a3396e8e4040aa4400265342c60aa8bc1aa947baa33178c4681f72&"},
+        {title: "avery face (why censor mouth)", imageUrl: "https://cdn.discordapp.com/attachments/1179945316678635601/1212561949116596264/888yN79.png?ex=65f24950&is=65dfd450&hm=e7bcc6faef7e61084887f1a33ac71a64fb308526b14c87d481dbd1838a61d618&"},
+        {title: "tf is this lmao", imageUrl: "https://cdn.discordapp.com/attachments/1179945316678635601/1212561948294778950/nUn5XOo.png?ex=65f24950&is=65dfd450&hm=5e66eaa2fa2e3597ff8e6f5ad86d7eb5292e50311f89a00582a7d910aa7341c9&"},
+        {title: "avery emo also cencored armpits, prob with hair yea", imageUrl: "https://cdn.discordapp.com/attachments/1179945316678635601/1212562226020483123/WUk4DBh.png?ex=65f24993&is=65dfd493&hm=8b590730d9341a0de9ba58340cc9053cdfefe7d499090414efafc04e19955c19&"},
+        {title: "AVERY PEDO", imageUrl: "https://cdn.discordapp.com/attachments/1179945316678635601/1212561951222140968/wNkBDs1.png?ex=65f24951&is=65dfd451&hm=27e830184a0f6c34ee89d1abe9ca75792a1708a82d4889e9cf1b011f316f3901&"},
+        {title: "woah", imageUrl: "https://cdn.discordapp.com/attachments/1179945316678635601/1212561950849114133/1ynVeka.png?ex=65f24951&is=65dfd451&hm=d859596993aa9c009e6148b11c0073297cb429dcc0db275b437d8220951de2a6&"},
+        {title: "wtf bro", imageUrl: "https://cdn.discordapp.com/attachments/1179945316678635601/1212561951670927400/XbwcQJt.png?ex=65f24951&is=65dfd451&hm=e61dff48e84257f50951654b6f9975cee263f52952a1837bc8214d0e6bf492e0&"},
+        {title: "ayo", imageUrl: "https://cdn.discordapp.com/attachments/1179945316678635601/1212561950073163776/1I2426B.jpg?ex=65f24951&is=65dfd451&hm=f4d423ceb1648152354313b2375e1e83d696cfcb237289a480a35c10e4351955&"}
+      ];
+
+      const contentContainer = document.querySelector('.content');
+
+      contentContainer.innerHTML = '';
+
+      content.forEach(item => {
+        const h1 = document.createElement('h1');
+        h1.textContent = item.title;
+
+        const img = document.createElement('img');
+        img.src = item.imageUrl;
+        img.alt = "Embedded Image";
+
+        contentContainer.appendChild(h1);
+        contentContainer.appendChild(img);
+      });
     }
+
+    document.getElementById('showButton').addEventListener('click', playMusic);
   </script>
 
 </body>
