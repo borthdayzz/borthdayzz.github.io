@@ -15,7 +15,8 @@ function showContent() {
     {title: "woah", imageUrl: "https://cdn.discordapp.com/attachments/1179945316678635601/1212561950849114133/1ynVeka.png?ex=65f24951&is=65dfd451&hm=d859596993aa9c009e6148b11c0073297cb429dcc0db275b437d8220951de2a6&"},
     {title: "wtf bro", imageUrl: "https://cdn.discordapp.com/attachments/1179945316678635601/1212561951670927400/XbwcQJt.png?ex=65f24951&is=65dfd451&hm=e61dff48e84257f50951654b6f9975cee263f52952a1837bc8214d0e6bf492e0&"},
     {title: "groomer!!!", imageUrl: "https://cdn.discordapp.com/attachments/1179945316678635601/1212694416691822612/e2Di8DB.png?ex=65f2c4af&is=65e04faf&hm=6fe9a74f929f51f06dd45ac860e1b2a8a20e91611cf03c04fd07fa9049133c9e&"},
-    {title: "ayo", imageUrl: "https://cdn.discordapp.com/attachments/1179945316678635601/1212561950073163776/1I2426B.jpg?ex=65f24951&is=65dfd451&hm=f4d423ceb1648152354313b2375e1e83d696cfcb237289a480a35c10e4351955&"}
+    {title: "ayo", imageUrl: "https://cdn.discordapp.com/attachments/1179945316678635601/1212561950073163776/1I2426B.jpg?ex=65f24951&is=65dfd451&hm=f4d423ceb1648152354313b2375e1e83d696cfcb237289a480a35c10e4351955&"},
+    {title: "averyy being wild", imageUrl: "https://cdn.discordapp.com/attachments/1186996277804798003/1217054160084668416/Screenshot_20240227_231729.jpg?ex=6602a103&is=65f02c03&hm=92c73e2401666742b7f237da0e5501029f768541a597c020b6c8911b93695159&"}
   ];
 
   const contentContainer = document.querySelector('.content');
