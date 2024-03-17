@@ -1,44 +1,22 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <link rel="icon" type="image/png" href="images/uncle.png">
-    <title>BirthScripts</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="other/support.css">
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BirthScripts</title>
+<link rel="stylesheet" href="other/new.css">
+<link rel="icon" type="image/png" href="images/uncle.png">
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to BirthScripts</h1>
-        <p>Explore these websites:</p>
-        <div class="btn-container">
-            <a href="https://birthscripts.github.io/birthx" target="_blank">
-                <button>Visit My Bio</button>
-            </a>
-            <a href="https://birthscripts.github.io/averyy" target="_blank">
-                <button>Visit Avery Dock</button>
-            </a>
-            <a href="https://birthscripts.github.io/webhook" target="_blank">
-                <button>Visit Webhook Deleter</button>
-            </a>
-            <a href="https://birthscripts.github.io/starhook.solutions" target="_blank">
-                <button>Visit starhook.solutions</button>
-            </a>
-        </div>
-    </div>
-    <button class="support-button" onclick="toggleSupportPopup()"><i class="fas fa-question"></i></button>
-    <div class="support-popup" id="supportPopup">
-        <h2>Need Support?</h2>
-        <select class="issue-selector" id="issueSelector">
-            <option value="Bug">Bug</option>
-            <option value="Feature Request">Feature Request</option>
-            <option value="Other">Other</option>
-        </select>
-        <textarea id="issueDescription" rows="4" placeholder="Describe your issue..."></textarea>
-        <br>
-        <button id="submitBtn" onclick="submitIssue()">Submit</button>
-    </div>
 
-    <script src="other/support.js"></script>
+<div id="video-container">
+    <video id="myVideo" controls>
+        Your browser does not support the video tag.
+    </video>
+</div>
+<button id="fullscreen-button">Press me</button>
+
+<script src="other/new.js"></script>
+
 </body>
 </html>
