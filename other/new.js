@@ -27,19 +27,3 @@ fullscreenButton.addEventListener('click', () => {
     fullscreenButton.style.display = 'none';
     fullscreenButton.blur();
 });
-
-document.addEventListener("fullscreenchange", toggleControls);
-document.addEventListener("webkitfullscreenchange", toggleControls);
-document.addEventListener("mozfullscreenchange", toggleControls);
-document.addEventListener("MSFullscreenChange", toggleControls);
-
-function toggleControls() {
-    if (document.fullscreenElement ||
-        document.webkitFullscreenElement ||
-        document.mozFullScreenElement ||
-        document.msFullscreenElement) {
-        video.controls = false;
-    } else {
-        video.controls = true;
-    }
-}
