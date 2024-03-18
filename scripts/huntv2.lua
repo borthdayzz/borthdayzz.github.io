@@ -1,5 +1,5 @@
 local Library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
-local Window = Library.CreateLib("The Hunt", "DarkTheme")
+local Window = Library.CreateLib("The Hunt - starhook.solutions", "DarkTheme")
 
 local gameData = {
     {name = "Doors", placeID = 6516141723, loadstringURL = "https://raw.githubusercontent.com/FFJ1/Roblox-Exploits/main/scripts/Loader.lua"},
@@ -73,7 +73,7 @@ game.Players.PlayerAdded:Connect(function(player)
     end)
 end)
 
-local Tab = Window:NewTab("THE HUNT - starhook.solutions")
+local Tab = Window:NewTab("THE HUNT")
 local Section = Tab:NewSection("The Hunt Scripts")
 
 for _, gameInfo in ipairs(gameData) do
