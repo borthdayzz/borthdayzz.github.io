@@ -1,4 +1,4 @@
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/BirthScripts/BirthScripts.github.io/main/scripts/kavomobile.lua"))()
 local Window = Library.CreateLib("The Hunt Scripts", "DarkTheme")
 
 local Tab = Window:NewTab("THE HUNT")
