@@ -9,7 +9,7 @@ function showContent() {
   const content = [
     {title: "avery sent this thighs for mod in pistons server lol", imageUrl: "https://cdn.discordapp.com/attachments/1179945316678635601/1212561948831387658/Adpi4pi.jpg?ex=6604be50&is=65f24950&hm=06a76cfbffe9378e6672324f13813a4595a5620dfefa0a134e9ba9e5beed63bd&"},
     {title: "avery face (why censor mouth)", imageUrl: "https://cdn.discordapp.com/attachments/1179945316678635601/1212561949116596264/888yN79.png?ex=6604be50&is=65f24950&hm=00d96ee71800eb8486d86754174b1abfa69db28730fdcf8c85371de86c452723&"},
-    {title: "tf is this lmao", imageUrl: "https://cdn.discordapp.com/attachments/1179945316678635601/1212561948294778950/nUn5XOo.png?ex=65f24950&is=65dfd450&hm=5e66eaa2fa2e3597ff8e6f5ad86d7eb5292e50311f89a00582a7d910aa7341c9&"},
+    {title: "tf is this lmao", imageUrl: "https://cdn.discordapp.com/attachments/1179945316678635601/1212561948294778950/nUn5XOo.png?ex=6604be50&is=65f24950&hm=745935c752305eacf2c084031c864eeb29a70fe29b808c3f9ac720e1ec4c341d&"},
     {title: "avery emo", imageUrl: "https://cdn.discordapp.com/attachments/1179945316678635601/1212562226020483123/WUk4DBh.png?ex=6604be93&is=65f24993&hm=84416228895a628a9651458734d04b0f5f7e62b575f25498e3d07bacdafcabdb&"},
     {title: "AVERY PEDO", imageUrl: "https://cdn.discordapp.com/attachments/1179945316678635601/1212561951222140968/wNkBDs1.png?ex=6604be51&is=65f24951&hm=e9b19f050befff31d5c5d22adfb93b7b4ddd6c4c1bde25178eae0170e821ea9b&"},
     {title: "woah", imageUrl: "https://cdn.discordapp.com/attachments/1179945316678635601/1212561950073163776/1I2426B.jpg?ex=6604be51&is=65f24951&hm=9f09d91d4c353c4aaa6903283014f8bbc69777a9fe239ddfed3fd491d7dbb449&"},
