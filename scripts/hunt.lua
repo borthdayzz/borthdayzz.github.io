@@ -88,7 +88,7 @@ Section:NewButton("Military Tycoon", "ButtonInfo", function()
 end)
 
 Section:NewButton("Pull A Sword", "ButtonInfo", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/BaconBABA/script/main/HuntPullASword.lua"))()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/ToraScript/Script/main/PullaSword'))()
 end)
 
 Section:NewButton("Strongman Simulator", "ButtonInfo", function()
