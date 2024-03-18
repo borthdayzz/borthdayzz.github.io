@@ -88,14 +88,7 @@ Section:NewButton("Military Tycoon", "ButtonInfo", function()
 end)
 
 Section:NewButton("Pull A Sword", "ButtonInfo", function()
-    while wait() do
-        local args = {
-            [1] = "Click",
-            [2] = true
-        }
-        
-        game:GetService("ReplicatedStorage"):WaitForChild("ClickEvent"):FireServer(unpack(args))
-    end
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/BaconBABA/script/main/HuntPullASword.lua"))()
 end)
 
 Section:NewButton("Strongman Simulator", "ButtonInfo", function()
