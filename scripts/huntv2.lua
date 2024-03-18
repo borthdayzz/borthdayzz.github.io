@@ -53,17 +53,14 @@ local function executeLoadstring(loadstringURL)
 end
 
 local function findGame()
+    local currentPlaceID = game.PlaceId
     for _, gameInfo in ipairs(gameData) do
-        if game.PlaceId == gameInfo.placeID then
+        if currentPlaceID == gameInfo.placeID then
             executeLoadstring(gameInfo.loadstringURL)
             return
         end
     end
-    local Tab = Window:GetTab("THE HUNT - starhook.solutions")
-    local LolSection = Tab:GetSection("The Hunt Scripts")
-LolSection:NewTextBox("Game not found", "lmao", function(fart)
-	print(fart)
-end)
+    game:GetService("Players").LocalPlayer:Kick("Game not supported, sorry")
 end
 
 findGame()
