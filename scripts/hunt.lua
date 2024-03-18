@@ -59,10 +59,6 @@ Section:NewButton("Arm Wrestle Simulator", "ButtonInfo", function()
     loadstring(game:HttpGet(('https://pastefy.app/Xwlh0PgF/raw'),true))()
 end)
 
-Section:NewButton("Arm Wrestle Simulator", "ButtonInfo", function()
-    loadstring(game:HttpGet(('https://pastefy.app/Xwlh0PgF/raw'),true))()
-end)
-
 Section:NewButton("Dragon Adventures", "ButtonInfo", function()
     loadstring(game:HttpGet(('https://pastefy.app/8bdqghaC/raw'),true))()
 end)
