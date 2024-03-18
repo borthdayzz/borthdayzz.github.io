@@ -82,3 +82,119 @@ Section:NewButton("Brookhaven", "ButtonInfo", function()
         end
     end
 end)
+
+Section:NewButton("Shindo Life", "ButtonInfo", function()
+    loadstring(game:HttpGet(('https://pastefy.app/IPgQi9Fa/raw'),true))()
+end)
+
+Section:NewButton("Military Tycoon", "ButtonInfo", function()
+    loadstring(game:HttpGet(('https://pastefy.app/7c00qJKY/raw'),true))()
+end)
+
+Section:NewButton("Military Tycoon", "ButtonInfo", function()
+    loadstring(game:HttpGet(('https://pastefy.app/7c00qJKY/raw'),true))()
+end)
+
+Section:NewButton("Pull A Sword", "ButtonInfo", function()
+    while wait() do
+        local args = {
+            [1] = "Click",
+            [2] = true
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("ClickEvent"):FireServer(unpack(args))
+    end
+end)
+
+Section:NewButton("Strongman Simulator", "ButtonInfo", function()
+    loadstring(game:HttpGet(('https://pastefy.app/Njm0OE4K/raw'),true))()
+end)
+
+Section:NewButton("Carry A Friend", "ButtonInfo", function()
+    loadstring(game:HttpGet(('https://pastefy.app/E2efZ9N5/raw'),true))()
+end)
+
+Section:NewButton("Tsunami Game", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1169.48987, 229.699951, -1078.7804, -0.0564090088, -2.50256971e-09, -0.998407722, -1.93398506e-08, 1, -1.41387924e-09, 0.998407722, 1.92293008e-08, -0.0564090088)
+end)
+
+Section:NewButton("Ninja Legends", "ButtonInfo", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/TrixAde/Proxima-Hub/main/Main.lua"))()
+end)
+
+Section:NewButton("Funky Friday", "ButtonInfo", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Nadir3709/RandomScript/main/FunkyFridayMobile"))()
+end)
+
+Section:NewButton("Funky Friday", "ButtonInfo", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Nadir3709/RandomScript/main/FunkyFridayMobile"))()
+end)
+
+Section:NewButton("The Floor Is Lava", "ButtonInfo", function()
+    game:GetService("ReplicatedStorage").Remotes.AwardEvent2:FireServer()
+end)
+
+Section:NewButton("Legends of Speed", "ButtonInfo", function()
+    while wait() do
+        local args = {
+            [1] = "collectOrb",
+            [2] = "Blue Orb",
+            [3] = "City"
+        }
+    
+        game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args))
+    end
+end)
+
+Section:NewButton("War Machines", "ButtonInfo", function()
+    loadstring(game:HttpGet(('https://pastefy.app/Hn9WQOf6/raw'),true))()
+end)
+
+Section:NewButton("Escape Running Head", "ButtonInfo", function()
+    loadstring(game:HttpGet(('https://pastefy.app/3VuKcB5D/raw'),true))()
+end)
+
+Section:NewButton("Car Dealership Tycoon", "ButtonInfo", function()
+    loadstring(game:HttpGet(('https://pastefy.app/0QG73f9b/raw'),true))()
+end)
+
+Section:NewButton("Obby but your on a bike", "ButtonInfo", function()
+    loadstring(game:HttpGet(('https://pastefy.app/siCxt7l3/raw'),true))()
+end)
+
+Section:NewButton("The Mimic", "ButtonInfo", function()
+    loadstring(game:HttpGet(('https://pastefy.app/qQjTL1b5/raw'),true))()
+end)
+
+Section:NewButton("Sonic Speed", "ButtonInfo", function()
+    local args = {
+        [1] = "AddEventPodiumProgress",
+        [2] = "CollectTimeStones",
+        [3] = 100
+    }
+    game:GetService("ReplicatedStorage").Knit.Services.MapStateService.RE.OnStateAction:FireServer(unpack(args))
+end)
+
+Section:NewButton("Mega Mansion Tycoon", "ButtonInfo", function()
+    loadstring(game:HttpGet(('https://pastefy.app/KEC8wyQA/raw'),true))()
+end)
+
+Section:NewButton("Need More Friends", "ButtonInfo", function()
+    loadstring(game:HttpGet(('https://pastefy.app/O1TvLreD/raw'),true))()
+end)
+
+Section:NewButton("Barry's Prison Run", "ButtonInfo", function()
+    game:GetService("ReplicatedStorage").Events2024.AwardBadge:FireServer()
+end)
+
+Section:NewButton("Natural Disaster Survival", "ButtonInfo", function()
+    loadstring(game:HttpGet(('https://pastefy.app/jcvuGl7E/raw'),true))()
+end)
+
+Section:NewButton("Club Roblox", "ButtonInfo", function()
+    game:GetService("ReplicatedStorage").DedicatedRemoteEvents.ExplodeDuck:FireServer()
+end)
+
+Section:NewButton("Bike Of Hell", "ButtonInfo", function()
+    loadstring(game:HttpGet(('https://pastefy.app/tpTROuRR/raw'),true))()
+end)
