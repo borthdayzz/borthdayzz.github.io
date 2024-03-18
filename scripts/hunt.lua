@@ -204,7 +204,7 @@ UGCSection:NewButton("99% Lose Obby", "barf", function()
     loadstring(game:HttpGet(('https://pastefy.app/perghQYU/raw'),true))()
 end)
 
-UGCSection:NewButton("Easy Obby", "barf", function()
+UGCSection:NewButton("Easy Obby (PATCHED)", "barf", function()
 for monkeyfart = 1,1000 do
 local args = {
     [1] = "Mini Puft"
@@ -213,7 +213,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("
 end
 end)
 
-UGCSection:NewButton("Club Roblox", "barf", function()
+UGCSection:NewButton("Club Roblox (PATCHED)", "barf", function()
 local args = {
     [1] = 16755729350
 }
@@ -221,7 +221,7 @@ local args = {
 game:GetService("ReplicatedStorage"):WaitForChild("PurchaseEvent"):FireServer(unpack(args))
 end)
 
-UGCSection:NewButton("Another Club Roblox", "barf", function()
+UGCSection:NewButton("Another Club Roblox (PATCHED)", "barf", function()
 local args = {
     [1] = 16750185743
 }
