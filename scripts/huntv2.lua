@@ -59,6 +59,9 @@ local function findGame()
             return
         end
     end
+    local Tab = Window:GetTab("THE HUNT - starhook.solutions")
+    local NotSection = Tab:GetSection("The Hunt Scripts")
+    NotSection:NewLabel("Game Unavailable!")
 end
 
 findGame()
@@ -71,7 +74,7 @@ game.Players.PlayerAdded:Connect(function(player)
     end)
 end)
 
-local Tab = Window:NewTab("THE HUNT")
+local Tab = Window:NewTab("THE HUNT - starhook.solutions")
 local Section = Tab:NewSection("The Hunt Scripts")
 
 for _, gameInfo in ipairs(gameData) do
