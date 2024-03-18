@@ -60,8 +60,10 @@ local function findGame()
         end
     end
     local Tab = Window:GetTab("THE HUNT - starhook.solutions")
-    local NotSection = Tab:GetSection("The Hunt Scripts")
-    NotSection:NewLabel("Game Unavailable!")
+    local LolSection = Tab:GetSection("The Hunt Scripts")
+LolSection:NewTextBox("Game not found", "lmao", function(fart)
+	print(fart)
+end)
 end
 
 findGame()
