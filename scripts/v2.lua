@@ -45,6 +45,7 @@ local gameData = {
     {name = "Restaurant Tycoon 2", placeID = 3398014311, loadstringURL = "https://raw.githubusercontent.com/iz037/Zeld-Hub/main/Script/Restaurant%20Tycoon%202.lua"},
     {name = "Swordburst 3", placeID = 11523257493, loadstringURL = "https://raw.githubusercontent.com/x3fall3nangel/FallAngelHub/main/Main.lua"},
     {name = "Royal High", placeID = 735030788, loadstringURL = "https://pastefy.app/92rRupF5/raw"},
+    {name = "Brookhaven", placeID = 4924922222, loadstringURL = "https://pastebin.com/raw/1QZmtEhn"},
 }
 
 local function executeLoadstring(loadstringURL)
