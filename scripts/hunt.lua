@@ -32,7 +32,7 @@ Section:NewButton("Muscle Legends", "barf", function()
 end)
 
 Section:NewButton("Dress to Impress", "barf", function()
-    loadstring(game:HttpGet(('https://pastefy.app/GzC2PpL0/raw'),true))()
+    loadstring(game:HttpGet(('https://pastefy.app/pSYBbjnz/raw'),true))()
 end)
 
 Section:NewButton("Murderers Vs Sheriffs", "barf", function()
