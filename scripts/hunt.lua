@@ -196,6 +196,22 @@ Section:NewButton("Metrolife", "barf", function()
     loadstring(game:HttpGet(('https://pastefy.app/UUdznPCa/raw'),true))()
 end)
 
+Section:NewButton("Greenville", "barf", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/ToraScript/Script/main/HUNTGreenville'))()
+end)
+
+Section:NewButton("Collect All Pets", "barf", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/ToraScript/Script/main/HUNTCollect'))()
+end)
+
+Section:NewButton("Spongebob Simulator", "barf", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/ToraScript/Script/main/SpongeBob'))()
+end)
+
+Section:NewButton("Piggy", "barf", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/ToraScript/Script/main/HUNTPiggy'))()
+end)
+
 -- FREE UGC
 local Tab = Window:NewTab("FREE UGC")
 local UGCSection = Tab:NewSection("UGC Scripts")
