@@ -69,7 +69,7 @@ local function findGame()
     if not isSupported then
         game.StarterGui:SetCore("SendNotification", {
             Title = "Warning",
-            Text = "Game is not supported! If you got teleported to a game we support, please manually press the button of the respective game.",
+            Text = "Game is not supported! Please manually press the button of the respective game.",
         })
     end
 end
