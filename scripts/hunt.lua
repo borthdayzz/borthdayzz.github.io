@@ -179,3 +179,15 @@ end)
 Section:NewButton("Bike Of Hell", "barf", function()
     loadstring(game:HttpGet(('https://pastefy.app/tpTROuRR/raw'),true))()
 end)
+
+Section:NewButton("Treasure Hunt Simulator", "barf", function()
+    loadstring(game:HttpGet(('https://pastefy.app/MqkIjsFS/raw'),true))()
+end)
+
+Section:NewButton("Livetopia", "barf", function()
+local args = {
+    [1] = "Easter2024_Egg",
+    [2] = "Equip"
+}
+game:GetService("ReplicatedStorage").Remotes.EquipToolRF:InvokeServer(unpack(args))
+end)
