@@ -169,7 +169,7 @@ Section:NewButton("Barry's Prison Run", "barf", function()
 end)
 
 Section:NewButton("Natural Disaster Survival", "barf", function()
-    loadstring(game:HttpGet(('https://pastefy.app/jcvuGl7E/raw'),true))()
+    loadstring(game:HttpGet("https://gitverse.ru/api/repos/stonifam/scripts/raw/branch/master/nds-clockFarm.lua"))()
 end)
 
 Section:NewButton("Club Roblox", "barf", function()
