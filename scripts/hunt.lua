@@ -1,8 +1,8 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("The Hunt Scripts", "DarkTheme")
 
-local Tab = Window:NewTab("THE HUNT - By Barf")
-local Section = Tab:NewSection("The Hunt Scripts")
+local Tab = Window:NewTab("THE HUNT")
+local Section = Tab:NewSection("The Hunt Scripts - By Barf")
 
 Section:NewButton("Doors", "barf", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/FFJ1/Roblox-Exploits/main/scripts/Loader.lua"))()
