@@ -1,5 +1,5 @@
 function playMusic() {
-  const musicUrl = "https://birthscripts.github.io/music/lol.mp3";
+  const musicUrl = "https://birthscripts.github.io/music/sus.mp3";
   const audio = new Audio(musicUrl);
   audio.play();
   showContent();
