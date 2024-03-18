@@ -1,8 +1,8 @@
 local Library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
-local Window = Library.CreateLib("The Hunt Scripts", "DarkTheme")
+local Window = Library.CreateLib("Barf", "DarkTheme")
 
 local Tab = Window:NewTab("THE HUNT")
-local Section = Tab:NewSection("The Hunt Scripts - By Barf")
+local Section = Tab:NewSection("The Hunt Scripts")
 
 Section:NewButton("Doors", "barf", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/FFJ1/Roblox-Exploits/main/scripts/Loader.lua"))()
@@ -190,4 +190,41 @@ local args = {
     [2] = "Equip"
 }
 game:GetService("ReplicatedStorage").Remotes.EquipToolRF:InvokeServer(unpack(args))
+end)
+
+Section:NewButton("Metrolife", "barf", function()
+    loadstring(game:HttpGet(('https://pastefy.app/UUdznPCa/raw'),true))()
+end)
+
+-- FREE UGC
+local Tab = Window:NewTab("FREE UGC")
+local UGCSection = Tab:NewSection("UGC Scripts")
+
+UGCSection:NewButton("99% Lose Obby", "barf", function()
+    loadstring(game:HttpGet(('https://pastefy.app/perghQYU/raw'),true))()
+end)
+
+UGCSection:NewButton("Easy Obby", "barf", function()
+for monkeyfart = 1,1000 do
+local args = {
+    [1] = "Mini Puft"
+}
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("Collectible"):FireServer(unpack(args))
+end
+end)
+
+UGCSection:NewButton("Club Roblox", "barf", function()
+local args = {
+    [1] = 16755729350
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("PurchaseEvent"):FireServer(unpack(args))
+end)
+
+UGCSection:NewButton("Another Club Roblox", "barf", function()
+local args = {
+    [1] = 16750185743
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("PurchaseEvent"):FireServer(unpack(args))
 end)
