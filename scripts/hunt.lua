@@ -91,10 +91,6 @@ Section:NewButton("Military Tycoon", "ButtonInfo", function()
     loadstring(game:HttpGet(('https://pastefy.app/7c00qJKY/raw'),true))()
 end)
 
-Section:NewButton("Military Tycoon", "ButtonInfo", function()
-    loadstring(game:HttpGet(('https://pastefy.app/7c00qJKY/raw'),true))()
-end)
-
 Section:NewButton("Pull A Sword", "ButtonInfo", function()
     while wait() do
         local args = {
@@ -120,10 +116,6 @@ end)
 
 Section:NewButton("Ninja Legends", "ButtonInfo", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/TrixAde/Proxima-Hub/main/Main.lua"))()
-end)
-
-Section:NewButton("Funky Friday", "ButtonInfo", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Nadir3709/RandomScript/main/FunkyFridayMobile"))()
 end)
 
 Section:NewButton("Funky Friday", "ButtonInfo", function()
