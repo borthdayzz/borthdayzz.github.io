@@ -8,6 +8,7 @@ local gameData = {
     {name = "War Tycoon", placeID = 4639625707, loadstringURL = "https://pastefy.app/xeBgd3YU/raw"},
     {name = "Muscle Legends", placeID = 3623096087, loadstringURL = "https://pastefy.app/E8qP8SvV/raw"},
     {name = "Dress to Impress", placeID = 15101393044, loadstringURL = "https://pastefy.app/pSYBbjnz/raw"},
+    {name = "Brookhaven", placeID = 4924922222, loadstringURL = "https://pastefy.app/F1uEVIsK/raw"},
     {name = "Murderers Vs Sheriffs", placeID = 12355337193, loadstringURL = "https://raw.githubusercontent.com/Deni210/murdersvssherrifsduels/main/rubyhub"},
     {name = "Red Cliff City", placeID = 8369888266, loadstringURL = "https://pastefy.app/GzC2PpL0/raw"},
     {name = "Mega Hide And Seek", placeID = 5708035517, loadstringURL = "https://pastefy.app/gFES8bq0/raw"},
@@ -45,12 +46,16 @@ local gameData = {
     {name = "Restaurant Tycoon 2", placeID = 3398014311, loadstringURL = "https://raw.githubusercontent.com/iz037/Zeld-Hub/main/Script/Restaurant%20Tycoon%202.lua"},
     {name = "Swordburst 3", placeID = 11523257493, loadstringURL = "https://raw.githubusercontent.com/x3fall3nangel/FallAngelHub/main/Main.lua"},
     {name = "Royal High", placeID = 735030788, loadstringURL = "https://pastefy.app/92rRupF5/raw"},
-    {name = "Brookhaven", placeID = 4924922222, loadstringURL = "https://pastebin.com/raw/1QZmtEhn"},
-    {name = "Driving Empire", placeID = 3351674303, loadstringURL = "https://pastefy.app/nqEDMxMJ/raw"},
+    {name = "Wild Horse Islands", placeID = 6989310863, loadstringURL = "https://pastefy.app/u1EV3rSW/raw"},
+    {name = "Catalog Avatar Creator", placeID = 7041939546, loadstringURL = "https://pastebin.com/raw/sjRMAEwe"},
 }
 
 local function executeLoadstring(loadstringURL)
     if loadstringURL then
+        game.StarterGui:SetCore("SendNotification", {
+            Title = "Loading Script",
+            Text = "Please wait while the script is loading...",
+        })
         loadstring(game:HttpGet(loadstringURL, true))()
     else
         warn("No loadstring provided for this game.")
@@ -70,7 +75,7 @@ local function findGame()
     if not isSupported then
         game.StarterGui:SetCore("SendNotification", {
             Title = "Warning",
-            Text = "Game is not supported! Please manually press the button of the respective game.",
+            Text = "Game is not supported! If you got teleported to a game we support, please manually press the button of the respective game.",
         })
     end
 end
@@ -93,3 +98,20 @@ for _, gameInfo in ipairs(gameData) do
         executeLoadstring(gameInfo.loadstringURL)
     end)
 end
+
+local Tab = Window:NewTab("Settings")
+local SettingSection = Tab:NewSection("The Hunt Scripts")
+
+local ThemeOptions = {"LightTheme", "DarkTheme", "GrapeTheme", "BloodTheme", "Ocean", "Midnight", "Sentinel", "Synapse"}
+SettingSection:NewDropdown("Select Theme", "Choose your preferred theme", ThemeOptions, function(currentTheme)
+    Window:SetTheme(currentTheme)
+end)
+
+SettingSection:NewButton("Copy Discord Server Link", "Click to copy the Discord server link", function()
+    local DiscordServerLink = "https://discord.gg/Rcus6RBDus"
+    setclipboard(DiscordServerLink)
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Discord Server Link Copied",
+        Text = "The Discord server link has been copied to your clipboard.",
+    })
+end)
