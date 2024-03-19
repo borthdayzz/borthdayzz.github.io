@@ -48,6 +48,11 @@ local gameData = {
     {name = "Royal High", placeID = 735030788, loadstringURL = "https://pastefy.app/92rRupF5/raw"},
     {name = "Wild Horse Islands", placeID = 6989310863, loadstringURL = "https://pastefy.app/u1EV3rSW/raw"},
     {name = "Catalog Avatar Creator", placeID = 7041939546, loadstringURL = "https://pastebin.com/raw/sjRMAEwe"},
+    {name = "Undead Defense", placeID = 5670292785, loadstringURL = "https://pastefy.app/Z5JWlsUK/raw"},
+    {name = "World // Zero", placeID = 2727067538, loadstringURL = "https://raw.githubusercontent.com/HeiKe2022/wz-beta/main/combine.lua"},
+    {name = "Break In 2", placeID = 13864661000, loadstringURL = "https://raw.githubusercontent.com/RScriptz/RobloxScripts/main/BreakIn2.lua"},
+    {name = "Deadly Decisions", placeID = 12434172731, loadstringURL = "https://pastefy.app/eQii5GZt/raw"},
+    {name = "Steep Steps", placeID = 11606818992, loadstringURL = "https://pastefy.app/fcGYCuGk/raw"},
 }
 
 local function executeLoadstring(loadstringURL)
@@ -75,7 +80,7 @@ local function findGame()
     if not isSupported then
         game.StarterGui:SetCore("SendNotification", {
             Title = "Warning",
-            Text = "Game is not supported! If you got teleported to a game we support, please manually press the button of the respective game.",
+            Text = "Game is not supported! Please manually press the button of the respective game.",
         })
     end
 end
