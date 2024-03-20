@@ -53,6 +53,7 @@ local gameData = {
     {name = "Break In 2", placeID = 13864661000, loadstringURL = "https://raw.githubusercontent.com/RScriptz/RobloxScripts/main/BreakIn2.lua"},
     {name = "Deadly Decisions", placeID = 12434172731, loadstringURL = "https://pastefy.app/eQii5GZt/raw"},
     {name = "Steep Steps", placeID = 11606818992, loadstringURL = "https://pastefy.app/fcGYCuGk/raw"},
+    {name = "Weapon Fighting Simulator", placeID = 8554378337, loadstringURL = "https://raw.githubusercontent.com/kederal/lopSecure/main/WFS.lua"},
 }
 
 local function executeLoadstring(loadstringURL)
