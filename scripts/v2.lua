@@ -54,6 +54,7 @@ local gameData = {
     {name = "Deadly Decisions", placeID = 12434172731, loadstringURL = "https://pastefy.app/eQii5GZt/raw"},
     {name = "Steep Steps", placeID = 11606818992, loadstringURL = "https://pastefy.app/fcGYCuGk/raw"},
     {name = "Weapon Fighting Simulator", placeID = 8554378337, loadstringURL = "https://raw.githubusercontent.com/kederal/lopSecure/main/WFS.lua"},
+    {name = "Pls Donate", placeID = 8737602449, loadstringURL = "https://pastefy.app/9YWojkbM/raw"},
 }
 
 local function executeLoadstring(loadstringURL)
