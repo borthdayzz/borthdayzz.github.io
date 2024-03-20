@@ -54,7 +54,12 @@ local gameData = {
     {name = "Deadly Decisions", placeID = 12434172731, loadstringURL = "https://pastefy.app/eQii5GZt/raw"},
     {name = "Steep Steps", placeID = 11606818992, loadstringURL = "https://pastefy.app/fcGYCuGk/raw"},
     {name = "Weapon Fighting Simulator", placeID = 8554378337, loadstringURL = "https://raw.githubusercontent.com/kederal/lopSecure/main/WFS.lua"},
-    {name = "Pls Donate", placeID = 8737602449, loadstringURL = "https://pastefy.app/9YWojkbM/raw"},
+    {name = "Spray Paint!", placeID = 5991163185, loadstringURL = "https://pastefy.app/NqGhFthe/raw"},
+    {name = "Lumberjack Simulator", placeID = 14897405913, loadstringURL = "https://pastefy.app/v5HB9S5u/raw"},
+    {name = "Emergency Response: Liberty County", placeID = 2534724415, loadstringURL = "https://pastefy.app/oEH24mXe/raw"},
+    {name = "Drive World", placeID = 10704789056, loadstringURL = "https://pastefy.app/JMVmDkIa/raw"},
+    {name = "Bedwars", placeID = 6872265039, loadstringURL = "https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua"},
+
 }
 
 local function executeLoadstring(loadstringURL)
