@@ -10,7 +10,7 @@ local gameData = {
     {name = "Dress to Impress", placeID = 15101393044, loadstringURL = "https://pastefy.app/pSYBbjnz/raw"},
     {name = "Brookhaven", placeID = 4924922222, loadstringURL = "https://pastefy.app/F1uEVIsK/raw"},
     {name = "Murderers Vs Sheriffs", placeID = 12355337193, loadstringURL = "https://raw.githubusercontent.com/Deni210/murdersvssherrifsduels/main/rubyhub"},
-    {name = "Red Cliff City", placeID = 8369888266, loadstringURL = "https://pastefy.app/GzC2PpL0/raw"},
+    {name = "Red Cliff City", placeID = 8369888266, loadstringURL = "https://raw.githubusercontent.com/ToraScript/Script/main/HUNTRedcliff"},
     {name = "Mega Hide And Seek", placeID = 5708035517, loadstringURL = "https://pastefy.app/gFES8bq0/raw"},
     {name = "Warrior Cats", placeID = 3663340706, loadstringURL = "https://pastefy.app/B6T7FhLE/raw"},
     {name = "Project Smash", placeID = 15092647980, loadstringURL = "https://pastefy.app/a14nDm7X/raw"},
