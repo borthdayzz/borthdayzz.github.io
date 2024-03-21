@@ -6,7 +6,7 @@ local gameData = {
     {name = "A Wolf or Other", placeID = 2432005634, loadstringURL = "https://pastefy.app/VZjK95cQ/raw"},
     {name = "The Strongest Battlegrounds", placeID = 10449761463, loadstringURL = "https://pastefy.app/pzmQATZR/raw"},
     {name = "War Tycoon", placeID = 4639625707, loadstringURL = "https://pastefy.app/xeBgd3YU/raw"},
-    {name = "Muscle Legends", placeID = 3623096087, loadstringURL = "https://pastefy.app/E8qP8SvV/raw"},
+    {name = "Muscle Legends", placeID = 3623096087, loadstringURL = "https://pastebin.com/raw/KD1RAdPC"},
     {name = "Dress to Impress", placeID = 15101393044, loadstringURL = "https://pastefy.app/pSYBbjnz/raw"},
     {name = "Brookhaven", placeID = 4924922222, loadstringURL = "https://pastefy.app/F1uEVIsK/raw"},
     {name = "Murderers Vs Sheriffs", placeID = 12355337193, loadstringURL = "https://raw.githubusercontent.com/Deni210/murdersvssherrifsduels/main/rubyhub"},
