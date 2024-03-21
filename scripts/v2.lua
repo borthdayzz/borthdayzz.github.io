@@ -39,7 +39,7 @@ local gameData = {
     {name = "Natural Disaster Survival", placeID = 189707, loadstringURL = "https://gitverse.ru/api/repos/stonifam/scripts/raw/branch/master/nds-clockFarm.lua"},
     {name = "Club Roblox", placeID = 3457390032, loadstringURL = "https://pastebin.com/raw/t90YEprT"},
     {name = "Bike Of Hell", placeID = 14943334555, loadstringURL = "https://pastefy.app/tpTROuRR/raw"},
-    {name = "Livetopia", placeID = 6737970321, loadstringURL = "https://pastefy.app/Vff1bQ9F/raw"},
+    {name = "Livetopia", placeID = 6737970321, loadstringURL = "https://pastebin.com/raw/5nk5PYmC"},
     {name = "Metrolife", placeID = 12985361032, loadstringURL = "https://pastefy.app/UUdznPCa/raw"},
     {name = "Greenville", placeID = 891852901, loadstringURL = "https://pastefy.app/b44Cv2ob/raw"},
     {name = "Toilet Tower Defense", placeID = 13775256536, loadstringURL = "https://pastebin.com/raw/sqCd934B"},
