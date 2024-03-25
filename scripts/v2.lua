@@ -59,7 +59,11 @@ local gameData = {
     {name = "Emergency Response: Liberty County", placeID = 2534724415, loadstringURL = "https://pastefy.app/oEH24mXe/raw"},
     {name = "Drive World", placeID = 10704789056, loadstringURL = "https://pastefy.app/JMVmDkIa/raw"},
     {name = "Bedwars", placeID = 6872265039, loadstringURL = "https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua"},
-
+    {name = "Combat Warriors", placeID = 4282985734, loadstringURL = "https://pastefy.app/BQEPkepo/raw"},
+    {name = "Astro Renaissance", placeID = 11329389795, loadstringURL = "https://pastebin.com/raw/VZ3XEhMm"},
+    {name = "Big Paintball 2", placeID = 9865958871, loadstringURL = "https://pastefy.app/hAa87AEn/raw"},
+    {name = "3008", placeID = 2768379856, loadstringURL = "https://pastefy.app/sdAklfrf/raw"},
+    {name = "Dungeon Quest", placeID = 2414851778, loadstringURL = "https://pastefy.app/vrj03Ign/raw"},
 }
 
 local ScreenGui = Instance.new("ScreenGui")
