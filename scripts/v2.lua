@@ -138,11 +138,6 @@ end
 local Tab = Window:NewTab("Settings")
 local SettingSection = Tab:NewSection("The Hunt Scripts")
 
-local ThemeOptions = {"LightTheme", "DarkTheme", "GrapeTheme", "BloodTheme", "Ocean", "Midnight", "Sentinel", "Synapse"}
-SettingSection:NewDropdown("Select Theme", "Choose your preferred theme", ThemeOptions, function(currentTheme)
-    Window:SetTheme(currentTheme)
-end)
-
 SettingSection:NewButton("Copy Discord Server Link", "Click to copy the Discord server link", function()
     local DiscordServerLink = "https://discord.gg/Rcus6RBDus"
     setclipboard(DiscordServerLink)
