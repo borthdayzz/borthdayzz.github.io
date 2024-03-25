@@ -64,6 +64,11 @@ local gameData = {
     {name = "Big Paintball 2", placeID = 9865958871, loadstringURL = "https://pastefy.app/hAa87AEn/raw"},
     {name = "3008", placeID = 2768379856, loadstringURL = "https://pastefy.app/sdAklfrf/raw"},
     {name = "Dungeon Quest", placeID = 2414851778, loadstringURL = "https://pastefy.app/vrj03Ign/raw"},
+    {name = "Anime Dimensions Simulator", placeID = 6938803436, loadstringURL = "https://pastefy.app/XwMtLvEx/raw"},
+    {name = "Gunfight Arena", placeID = 14518422161, loadstringURL = "https://pastefy.app/5FHMVmv8/raw"},
+    {name = "Elemental Powers Tycoon", placeID = 10253248401, loadstringURL = "https://raw.githubusercontent.com/BaconBossScript/EPT/main/EPT"},
+    {name = "SpongeBob Simulator", placeID = 14696958202, loadstringURL = "https://pastefy.app/0nLc7v8h/raw"},
+    {name = "Piggy", placeID = 4623386862, loadstringURL = "https://raw.githubusercontent.com/BaconBossScript/Piggy/main/Piggy"},
 }
 
 local ScreenGui = Instance.new("ScreenGui")
