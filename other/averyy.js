@@ -11,8 +11,8 @@ function showContent() {
     {title: "avery face (why censor mouth)", imageUrl: "https://birthscripts.github.io/images/averyykuromi.png"},
     {title: "tf is this lmao", imageUrl: "https://birthscripts.github.io/images/tf.png"},
     {title: "avery emo", imageUrl: "https://birthscripts.github.io/images/edrfger.png"},
-    {title: "AVERY PEDO", imageUrl: "https://birthscripts.github.io/images/edrfger.png/lol.png"},
-    {title: "averyy dealdo", imageUrl: "https://birthscripts.github.io/images/averyyexposed4.png"},
+    {title: "AVERY PEDO", imageUrl: "https://birthscripts.github.io/images/lol.png"},
+    {title: "averyy dealdo", imageUrl: "https://birthscripts.github.io/images/averyyexposed4.jpg"},
     {title: "fuck me in the ass", imageUrl: "https://birthscripts.github.io/images/waht.png"},
   ];
 
