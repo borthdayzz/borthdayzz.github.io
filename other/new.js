@@ -2,8 +2,8 @@ const fullscreenButton = document.getElementById('fullscreen-button');
 const videoContainer = document.getElementById('video-container');
 const video = document.getElementById('myVideo');
 const videoUrls = [
-    'https://birthscripts.github.io/videos/alien.mp4',
-    'https://birthscripts.github.io/videos/alien2.mp4'
+    'https://borthdayzz.github.io/videos/alien.mp4',
+    'https://borthdayzz.github.io/videos/alien2.mp4'
 ];
 
 fullscreenButton.addEventListener('click', () => {
