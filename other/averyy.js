@@ -1,5 +1,5 @@
 function playMusic() {
-  const musicUrl = "https://borthdayzz.github.io/music/sus.mp3";
+  const musicUrl = "https://borthdayzz.github.io/music/pace.mp3";
   const audio = new Audio(musicUrl);
   audio.play();
   showContent();
