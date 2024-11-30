@@ -72,26 +72,59 @@
 
     <div id="countdown"></div>
 
-    <audio id="sigmaaudio" loop>
-        <source src="music/gyatt.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
-
     <canvas id="snow"></canvas>
 
     <button id="muteButton" onclick="toggleMute()">
         <i class="fas fa-volume-up" id="muteIcon"></i>
     </button>
 
+    <audio id="sigmaaudio">
+        <source id="audioSource" src="music/gyatt.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    
     <script>
         const audio = document.getElementById('sigmaaudio');
+        const audioSource = document.getElementById('audioSource');
         let isMuted = false;
-
-        document.addEventListener('click', function() {
+    
+        const playlist = [
+            'music/sigma gyatt.mp3',
+            'music/skib.mp3',
+            'music/ohio.mp3'
+        ];
+    
+        let currentTrackIndex = 0;
+    
+        document.addEventListener('click', function () {
             if (!isMuted) {
                 audio.play();
             }
         });
+    
+        audio.addEventListener('ended', function () {
+            currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
+            audioSource.src = playlist[currentTrackIndex];
+            audio.load();
+            if (!isMuted) {
+                audio.play();
+            }
+        });
+    
+        function toggleMute() {
+            const muteIcon = document.getElementById('muteIcon');
+            isMuted = !isMuted;
+    
+            if (isMuted) {
+                audio.pause();
+                muteIcon.classList.remove('fa-volume-up');
+                muteIcon.classList.add('fa-volume-mute');
+            } else {
+                audio.play();
+                muteIcon.classList.remove('fa-volume-mute');
+                muteIcon.classList.add('fa-volume-up');
+            }
+        }
 
         function updateCountdown() {
             const countdownElement = document.getElementById('countdown');
