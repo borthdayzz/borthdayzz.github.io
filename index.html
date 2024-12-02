@@ -203,12 +203,11 @@
         function adjustSnowflakeSpeed() {
             const now = new Date();
             if (now.getMonth() === 11) {
-                snowflakes.forEach(snowflake => {
-                    snowflake.speed += 0.2;
-                });
-            }
-        }
-
+            snowflakes.forEach(snowflake => {
+            snowflake.speed = Math.min(snowflake.speed + 0.05, 2);
+        });
+    }
+}
         function toggleMute() {
             const muteIcon = document.getElementById('muteIcon');
 
