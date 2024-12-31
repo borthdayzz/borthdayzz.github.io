@@ -32,7 +32,7 @@
             text-shadow: 2px 2px 5px #000;
         }
 
-        #countdown {
+        #countdown, #newYearCountdown {
             font-size: 3em;
             margin: 20px 0;
             padding: 10px;
@@ -41,6 +41,10 @@
             background-color: rgba(255, 255, 255, 0.2);
             display: inline-block;
             text-shadow: 2px 2px 5px #000;
+        }
+
+        #newYearCountdown {
+            margin-top: 10px;
         }
 
         #snow {
@@ -67,10 +71,12 @@
     </style>
 </head>
 <body>
-    <h1>Merry Christmas</h1>
+    <h1>Merry Christmas and a Happy New Year</h1>
     <p>By the boggle.cc Team</p>
 
     <div id="countdown"></div>
+    <br>
+    <div id="newYearCountdown"></div>
 
     <canvas id="snow"></canvas>
 
@@ -87,22 +93,22 @@
         const audio = document.getElementById('sigmaaudio');
         const audioSource = document.getElementById('audioSource');
         let isMuted = false;
-    
+
         const playlist = [
             'music/sigma gyatt.mp3',
             'music/ohio.mp3',
             'music/chestnuts.mp3',
             "music/duet.mp3"
         ];
-    
+
         let currentTrackIndex = 0;
-    
+
         document.addEventListener('click', function () {
             if (!isMuted) {
                 audio.play();
             }
         });
-    
+
         audio.addEventListener('ended', function () {
             currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
             audioSource.src = playlist[currentTrackIndex];
@@ -111,11 +117,11 @@
                 audio.play();
             }
         });
-    
+
         function toggleMute() {
             const muteIcon = document.getElementById('muteIcon');
             isMuted = !isMuted;
-    
+
             if (isMuted) {
                 audio.pause();
                 muteIcon.classList.remove('fa-volume-up');
@@ -129,104 +135,39 @@
 
         function updateCountdown() {
             const countdownElement = document.getElementById('countdown');
+            const newYearElement = document.getElementById('newYearCountdown');
             const now = new Date();
             const currentYear = now.getFullYear();
+
             const christmasDate = new Date(currentYear, 11, 25);
             const nextChristmasDate = new Date(currentYear + 1, 11, 25);
+            const newYearDate = new Date(currentYear + 1, 0, 1);
 
-            let days, hours, minutes, seconds;
+            let timeDifference, days, hours, minutes, seconds;
 
             if (now < christmasDate) {
-                const timeDifference = christmasDate - now;
-
-                days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-                hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-                seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-
-                countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s until Christmas`;
-            } else if (now.toDateString() === christmasDate.toDateString()) {
-                countdownElement.innerHTML = "Merry Christmas!";
+                timeDifference = christmasDate - now;
             } else {
-                const timeDifference = nextChristmasDate - now;
-
-                days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-                countdownElement.innerHTML = `${days} days until next Christmas`;
+                timeDifference = nextChristmasDate - now;
             }
+
+            days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+            countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s until Christmas`;
+
+            const newYearDifference = newYearDate - now;
+            const nyDays = Math.floor(newYearDifference / (1000 * 60 * 60 * 24));
+            const nyHours = Math.floor((newYearDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const nyMinutes = Math.floor((newYearDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const nySeconds = Math.floor((newYearDifference % (1000 * 60)) / 1000);
+            newYearElement.innerHTML = `${nyDays}d ${nyHours}h ${nyMinutes}m ${nySeconds}s until New Year`;
 
             setTimeout(updateCountdown, 1000);
         }
 
         updateCountdown();
-
-        const snowCanvas = document.getElementById('snow');
-        const ctx = snowCanvas.getContext('2d');
-        snowCanvas.width = window.innerWidth;
-        snowCanvas.height = window.innerHeight;
-
-        const snowflakes = [];
-        function createSnowflakes() {
-            for (let i = 0; i < 100; i++) {
-                snowflakes.push({
-                    x: Math.random() * snowCanvas.width,
-                    y: Math.random() * snowCanvas.height,
-                    radius: Math.random() * 4 + 1,
-                    speed: Math.random() * 1 + 0.5,
-                    drift: Math.random() * 1 - 0.5
-                });
-            }
-        }
-
-        function drawSnowflakes() {
-            ctx.clearRect(0, 0, snowCanvas.width, snowCanvas.height);
-            snowflakes.forEach(snowflake => {
-                ctx.beginPath();
-                ctx.arc(snowflake.x, snowflake.y, snowflake.radius, 0, Math.PI * 2);
-                ctx.fillStyle = 'white';
-                ctx.fill();
-                snowflake.y += snowflake.speed;
-                snowflake.x += snowflake.drift;
-
-                if (snowflake.y > snowCanvas.height) {
-                    snowflake.y = -snowflake.radius;
-                }
-                if (snowflake.x > snowCanvas.width || snowflake.x < 0) {
-                    snowflake.x = Math.random() * snowCanvas.width;
-                }
-            });
-        }
-
-        function updateSnow() {
-            drawSnowflakes();
-            requestAnimationFrame(updateSnow);
-        }
-
-        function adjustSnowflakeSpeed() {
-            const now = new Date();
-            if (now.getMonth() === 11) {
-            snowflakes.forEach(snowflake => {
-            snowflake.speed = Math.min(snowflake.speed + 0.05, 2);
-        });
-    }
-}
-        function toggleMute() {
-            const muteIcon = document.getElementById('muteIcon');
-
-            isMuted = !isMuted;
-            if (isMuted) {
-                audio.pause();
-                muteIcon.classList.remove('fa-volume-up');
-                muteIcon.classList.add('fa-volume-mute');
-            } else {
-                audio.play();
-                muteIcon.classList.remove('fa-volume-mute');
-                muteIcon.classList.add('fa-volume-up');
-            }
-        }
-
-        createSnowflakes();
-        updateSnow();
-        setInterval(adjustSnowflakeSpeed, 1000);
     </script>
 </body>
 </html>
