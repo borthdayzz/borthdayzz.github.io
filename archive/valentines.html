@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="borthdayzz - Valentine's Special" property="og:title" />
+    <title>borthdayzz - Valentine's Special</title>
+    <link rel="icon" type="image/png" href="images/boggle.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="overlay" onclick="startWebsite()">
+        <p class="click-text">Click to feel the love!</p>
+    </div>
+    <div class="container">
+        <p class="message">Happy Valentine's Day! 💖</p>
+        <p class="status">Love is in the air...</p>
+        <img src="images/valentines.jpg" alt="valentines" class="jpg" width="300" height="300">
+        <p class="email"><a href="mailto:barf@cumallover.me">Send Love 💌</a></p>
+    </div>
+    <footer class="credits">
+        <p>Made with <span>&#10084;</span> for you!</p>
+    </footer>
+    <audio id="fuckvalentines" src="music/Cupid.mp3" loop></audio>
+    <script>
+        function startWebsite() {
+            document.getElementById("overlay").style.display = "none";
+            const container = document.querySelector(".container");
+            container.classList.add("active");
+            const music = document.getElementById("fuckvalentines");
+            music.play();
+        }
+    </script>
+</body>
+</html>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
+    color: white;
+    overflow: hidden;
+    user-select: none;
+}
+
+.container {
+    text-align: center;
+    animation: fadeIn 2s ease-in-out;
+    filter: blur(10px);
+    transition: filter 0.5s ease, transform 0.5s ease;
+    transform: scale(0.9);
+}
+
+.container.active {
+    filter: blur(0);
+    transform: scale(1);
+}
+
+.message {
+    font-size: 4rem;
+    font-weight: 700;
+    margin: 20px 0;
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+.status {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 20px 0;
+    color: #ffebf6;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+.gif {
+    width: 202px;
+    height: 202px;
+    margin: 20px 0;
+    animation: heartBeat 1s infinite;
+}
+
+.email a {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.email a:hover {
+    color: #ff4d6d;
+}
+
+.credits {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 1rem;
+    color: white;
+}
+
+.credits span {
+    color: #ff4d6d;
+}
+
+#overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.click-text {
+    font-size: 2rem;
+    color: white;
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heartBeat {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+</style>
