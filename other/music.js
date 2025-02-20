@@ -3,8 +3,7 @@ const songs = [
     new Audio('music/A Piece of You.mp3'),
     new Audio('music/Ivy.mp3'),
     new Audio('music/Poetic Justice.mp3'),
-    new Audio('music/Cupid.mp3'),
-    new Audio('music/A Piece of You.mp3')
+    new Audio('music/Cupid.mp3')
 ];
 
 function startWebsite() {
