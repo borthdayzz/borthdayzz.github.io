@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUSIC</title>
+    <style>
+        @font-face {
+            font-family: 'Swiss911';
+            src: url('Swiss911CompressedRegular.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'LongTallSally';
+            src: url('LongTallSally.ttf') format('truetype');
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            padding: 0 2%;
+        }
+
+        .video-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        video {
+            width: 360px;
+            height: 640px;
+            object-fit: cover;
+        }
+
+        .content {
+            flex: 1;
+            text-align: center;
+        }
+
+        .album-cover {
+            max-width: 80%;
+            height: auto;
+        }
+
+        #countdown {
+            font-size: 2em;
+            margin-top: 20px;
+            font-weight: bold;
+            font-family: 'LongTallSally', sans-serif;
+        }
+
+        @media (max-width: 1024px) {
+            body {
+                flex-direction: column;
+                justify-content: center;
+                height: auto;
+                padding: 20px 0;
+            }
+
+            .video-container {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            video {
+                width: 90%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <video autoplay loop muted>
+            <source src="videos/CARTI.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    
+    <div class="content">
+        <img src="images/image.png" alt="I Am Music Album Cover" class="album-cover">
+        <div id="countdown"></div>
+    </div>
+
+    <div class="video-container">
+        <video autoplay loop>
+            <source src="videos/CARTI FRIDAY.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <script>
+        function updateCountdown() {
+            const releaseDate = new Date("March 14, 2025 00:00:00").getTime();
+            const now = new Date().getTime();
+            const timeLeft = releaseDate - now;
+
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = 
+                `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+            if (timeLeft < 0) {
+                document.getElementById("countdown").innerHTML = "CHECK SPOTIFY";
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
