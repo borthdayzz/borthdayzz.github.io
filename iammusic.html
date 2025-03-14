@@ -1,20 +1,20 @@
 <!doctypehtml><html lang=en><meta charset=UTF-8><meta content="width=device-width,initial-scale=1"name=viewport><title>I AM MUSIC</title><meta content="I AM MUSIC"name=title><meta content=FRIDAY name=description><meta content=#4b4c51 name=theme-color><meta content="width=device-width,initial-scale=1"name=viewport><meta charset=utf-8><meta content=website property=og:type><meta content=https://borthdayzz.github.io/iammusic property=og:url><meta content="I AM MUSIC"property=og:title><meta content=FRIDAY property=og:description><meta content=https://borthdayzz.github.io/iammusic/images/image.png property=og:image><meta content=image/jpeg property=og:image:type><meta content=FRIDAY property=og:image:alt><meta content=summary_large_image property=twitter:card><meta content=https://borthdayzz.github.io/iammusic property=twitter:url><meta content="I AM MUSIC"property=twitter:title><meta content=FRIDAY property=twitter:description><meta content=""property=twitter:image><title>MUSIC</title><script crossorigin=anonymous src=https://kit.fontawesome.com/cf041736d3.js></script><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap"rel=stylesheet><style>@font-face{font-family:Swiss911;src:url(Swiss911CompressedRegular.ttf) format('truetype')}@font-face{font-family:LongTallSally;src:url(LongTallSally.ttf) format('truetype')}body{background-color:#000;color:#fff;display:flex;align-items:center;justify-content:space-between;height:100vh;margin:0;font-family:Impact,sans-serif;padding:0 2%;position:relative;text-transform:uppercase}.spotify-logo{position:absolute;top:20px;right:20px;display:flex;align-items:center;font-size:1.4em;font-weight:700;font-family:Poppins,sans-serif}.spotify-logo i{margin-right:8px;font-size:1.6em}.video-container{flex:1;display:flex;justify-content:center;align-items:center}video{width:360px;height:640px;object-fit:cover}.content{flex:1;text-align:center}.album-cover{max-width:80%;height:auto}#countdown{font-size:2.5em;margin-top:20px;font-weight:700}@media (max-width:1024px){body{flex-direction:column;justify-content:center;height:auto;padding:20px 0}.video-container{width:100%;margin-bottom:20px}video{width:90%;height:auto}}</style><div class=spotify-logo><i class="fa-spotify fab"></i></div><div class=video-container><video autoplay loop muted><source src=videos/CARTI.mp4 type=video/mp4></video></div><div class=content><img alt=MUSIC class=album-cover src=images/image.png><div id=countdown></div></div><div class=video-container><video autoplay loop><source src="videos/CARTI FRIDAY.mp4"type=video/mp4></video></div><script>function updateCountdown() {
-            const releaseDate = new Date("March 14, 2025 00:00:00").getTime();
-            const now = new Date().getTime();
-            const timeLeft = releaseDate - now;
+    const releaseDate = new Date("March 14, 2025 00:00:00").getTime();
+    const now = new Date().getTime();
+    const timeLeft = releaseDate - now;
 
-            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-            document.getElementById("countdown").innerHTML = 
-                `${days}D ${hours}H ${minutes}M ${seconds}S`;
+    document.getElementById("countdown").innerHTML = 
+        `${days}D ${hours}H ${minutes}M ${seconds}S`;
 
-            if (timeLeft < 0) {
-                document.getElementById("countdown").innerHTML = "CHECK SPOTIFY";
-            }
-        }
+    if (timeLeft < 0) {
+        document.getElementById("countdown").innerHTML = "I AM DELAYED AGAIN, WILL HAVE THE ALBUM IN A SEC";
+    }
+}
 
-        setInterval(updateCountdown, 1000);
-        updateCountdown();</script>
+setInterval(updateCountdown, 1000);
+updateCountdown();</script>
