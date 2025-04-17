@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="borthdayzz" property="og:title" />
+    <title>borthdayzz</title>
+    <link rel="icon" type="image/png" href="images/uncle.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="other/index.css" />
+</head>
+<body>
+    <div id="overlay" onclick="startWebsite()"></div>
+    <div class="container">
+        <p class="quote">The best way to predict the future is to create it.</p>
+        <img src="images/cat.gif" alt="cat" class="gif">
+        <p class="email"><a href="mailto:barf@cumallover.me">barf@cumallover.me</a></p>
+    </div>
+    <footer class="credits">
+        <p>Designed with <span>&#10084;</span></p>
+    </footer>
+
+    <audio id="backgroundMusic" src="music/Wheels Fall Off.mp3" loop></audio>
+
+    <script>
+        function startWebsite() {
+            document.getElementById('overlay').style.display = 'none';
+            const container = document.querySelector('.container');
+            container.classList.add('active');
+            const music = document.getElementById('backgroundMusic');
+            music.play();
+        }
+    </script>
+</body>
+</html>

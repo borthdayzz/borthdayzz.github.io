@@ -5,7 +5,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: #ffccd5;
+    background: black;
     color: white;
     overflow: hidden;
     user-select: none;
@@ -100,7 +100,7 @@ body {
         transform: scale(1);
     }
     50% {
-        transform: scale(1.1);
+        transform: scale(1.05);
     }
     100% {
         transform: scale(1);
