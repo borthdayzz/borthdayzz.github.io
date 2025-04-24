@@ -1,0 +1,16 @@
+<html lang="en">
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="icon" type="image/png" href="images/uncle.png">
+   <title>avery</title>
+   <link rel="stylesheet" href="other/averyy.css">
+ </head>
+ <body>
+   <button id="showButton">Click me to show everything</button>
+   
+   <div class="content"></div>
+   
+   <script src="other/averyy.js"></script>
+ </body>
+ </html>
