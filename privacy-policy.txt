@@ -1,0 +1,21 @@
+Privacy Policy
+
+1. Data Collection
+This bot may collect the following data:
+- User IDs and server IDs for functionality.
+- Commands issued to the bot.
+
+2. Data Usage
+Collected data is used solely for the operation of the bot and is not shared with third parties.
+
+3. Data Storage
+Data is stored temporarily in memory and is not saved permanently unless explicitly stated.
+
+4. Data Removal
+If you wish to remove your data, please contact the bot owner.
+
+5. Changes
+We reserve the right to update this privacy policy at any time. Continued use of the bot constitutes acceptance of the updated policy.
+
+6. Contact
+For questions or concerns, please contact the bot owner.
