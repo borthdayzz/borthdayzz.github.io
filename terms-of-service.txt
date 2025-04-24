@@ -1,0 +1,22 @@
+Terms of Service
+
+1. Acceptance of Terms
+By using this bot, you agree to these Terms of Service. If you do not agree, you may not use the bot.
+
+2. Usage
+You may use this bot for personal or community purposes in compliance with Discord's Terms of Service and Community Guidelines.
+
+3. Restrictions
+You may not:
+- Use the bot for illegal activities.
+- Exploit the bot for unauthorized purposes.
+- Attempt to reverse-engineer or modify the bot.
+
+4. Liability
+The bot is provided "as is" without any warranties. The developers are not responsible for any damages or issues caused by the bot.
+
+5. Changes
+We reserve the right to update these terms at any time. Continued use of the bot constitutes acceptance of the updated terms.
+
+6. Contact
+For questions or concerns, please contact the bot owner.
