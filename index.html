@@ -64,6 +64,9 @@
             if (i !== currentLine) {
                 currentLine = i;
                 lyricsDiv.textContent = lyrics[i].text;
+                lyricsDiv.classList.remove('fade-in');
+                void lyricsDiv.offsetWidth;
+                lyricsDiv.classList.add('fade-in');
             }
         });
     </script>
