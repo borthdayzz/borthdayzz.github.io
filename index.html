@@ -22,7 +22,8 @@
         <p>Designed with <span>&#10084;</span></p>
     </footer>
 
-    <audio id="backgroundMusic" src="music/Wheels Fall Off.mp3" loop></audio>
+    <audio id="backgroundMusic" src="music/party.flac" loop></audio>
+    <audio id="backgroundMusic2" src="music/Wheels Fall Off.mp3" style="display:none"></audio>
 
     <script>
         function startWebsite() {
@@ -36,11 +37,12 @@
         const lyricsDiv = document.getElementById('lyrics');
         let lyrics = [];
         let currentLine = -1;
+        let currentSong = 1;
 
-        fetch('music/wheels.lrc')
-            .then(res => res.text())
-            .then(text => {
-                lyrics = text.split('\n')
+        function loadLyrics(lrcPath) {
+            return fetch(lrcPath)
+                .then(res => res.text())
+                .then(text => text.split('\n')
                     .map(line => {
                         const match = line.match(/\[(\d+):(\d+\.\d+)\](.*)/);
                         if (match) {
@@ -53,21 +55,65 @@
                         }
                         return null;
                     })
-                    .filter(Boolean);
-            });
+                    .filter(Boolean)
+                );
+        }
 
         const music = document.getElementById('backgroundMusic');
-        music.addEventListener('timeupdate', () => {
-            if (!lyrics.length) return;
-            let i = 0;
-            while (i < lyrics.length - 1 && music.currentTime >= lyrics[i + 1].time) i++;
-            if (i !== currentLine) {
-                currentLine = i;
-                lyricsDiv.textContent = lyrics[i].text;
-                lyricsDiv.classList.remove('fade-in');
-                void lyricsDiv.offsetWidth;
-                lyricsDiv.classList.add('fade-in');
+        const music2 = document.getElementById('backgroundMusic2');
+        const bigLyricTimes = [
+            169.17, 172.44, 175.47, 178.47, 181.58, 184.53, 187.53, 190.58, 193.56, 196.52, 199.57, 202.52,
+            253.89, 256.89, 259.80, 263.06, 265.96, 268.93, 271.94, 274.84, 277.92, 281.17, 284.18, 287.10
+        ];
+
+        function isBigLyric(time, text) {
+            return bigLyricTimes.some(t => Math.abs(t - time) < 0.15) &&
+                /^Party on you, party on you, party on/i.test(text.trim());
+        }
+
+        function setupLyricSync(audio, lrcPath, bigTimes = bigLyricTimes) {
+            let localLyrics = [];
+            let localCurrentLine = -1;
+            loadLyrics(lrcPath).then(parsedLyrics => {
+                localLyrics = parsedLyrics;
+            });
+
+            function lyricSyncHandler() {
+                if (!localLyrics.length) return;
+                let i = 0;
+                if (audio.currentTime < localLyrics[0].time) {
+                    lyricsDiv.textContent = '';
+                    localCurrentLine = -1;
+                    return;
+                }
+                while (i < localLyrics.length - 1 && audio.currentTime >= localLyrics[i + 1].time) i++;
+                if (i !== localCurrentLine) {
+                    localCurrentLine = i;
+                    lyricsDiv.textContent = localLyrics[i].text;
+                    lyricsDiv.classList.remove('fade-in', 'big-lyric');
+                    void lyricsDiv.offsetWidth;
+                    lyricsDiv.classList.add('fade-in');
+                    if (bigTimes && isBigLyric(localLyrics[i].time, localLyrics[i].text)) {
+                        lyricsDiv.classList.add('big-lyric');
+                    }
+                }
             }
+
+            audio.addEventListener('timeupdate', lyricSyncHandler);
+
+            audio._removeLyricSync = () => audio.removeEventListener('timeupdate', lyricSyncHandler);
+        }
+
+        setupLyricSync(music, 'music/party.lrc');
+
+        music.loop = false;
+        music.addEventListener('ended', () => {
+            music._removeLyricSync && music._removeLyricSync();
+            music.style.display = 'none';
+            music2.style.display = '';
+            music2.currentTime = 0;
+            music2.play();
+            setupLyricSync(music2, 'music/wheels.lrc', null);
         });
     </script>
 </body>

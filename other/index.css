@@ -78,13 +78,19 @@ body {
     margin: 24px 0 8px 0;
     min-height: 2.5em;
     transition: color 0.3s;
-    }
-    #lyrics.fade-in {
-        animation: fadeInLyric 0.7s;
-    }
-    @keyframes fadeInLyric {
-        from { opacity: 0; transform: translateY(10px);}
-        to   { opacity: 1; transform: translateY(0);}
+}
+#lyrics.fade-in {
+    animation: fadeInLyric 0.7s;
+}
+#lyrics.big-lyric {
+    font-size: 3.2rem;
+    color: #ffb347;
+    text-shadow: 0 4px 16px #000, 0 0 8px #ffb347;
+    transition: font-size 0.2s, color 0.2s;
+}
+@keyframes fadeInLyric {
+    from { opacity: 0; transform: translateY(10px);}
+    to   { opacity: 1; transform: translateY(0);}
 }
 
 #overlay {
