@@ -16,13 +16,13 @@
         <p class="quote">The best way to predict the future is to create it.</p>
         <img src="images/cat.gif" alt="cat" class="gif">
         <div id="lyrics"></div>
-        <p class="email"><a href="mailto:borthdayzz@mailhaven.su">borthdayzz@mailhaven.su</a></p>
+        <p class="email"><a href="mailto:borthdayzz@mailhaven.su">barf@mailhaven.su</a></p>
     </div>
     <footer class="credits">
         <p>Designed with <span>&#10084;</span></p>
     </footer>
 
-    <audio id="backgroundMusic" src="music/Wheels Fall Off.mp3"></audio>
+    <audio id="backgroundMusic" src="music/Wheels Fall Off.mp3" loop></audio>
 
     <script>
         function startWebsite() {
@@ -37,10 +37,10 @@
         let lyrics = [];
         let currentLine = -1;
 
-        function loadLyrics(lrcPath) {
-            return fetch(lrcPath)
-                .then(res => res.text())
-                .then(text => text.split('\n')
+        fetch('music/wheels.lrc')
+            .then(res => res.text())
+            .then(text => {
+                lyrics = text.split('\n')
                     .map(line => {
                         const match = line.match(/\[(\d+):(\d+\.\d+)\](.*)/);
                         if (match) {
@@ -53,70 +53,22 @@
                         }
                         return null;
                     })
-                    .filter(Boolean)
-                );
-        }
-
-        const music = document.getElementById('backgroundMusic');
-
-        function renderLyrics(localLyrics, currentIdx) {
-            lyricsDiv.innerHTML = '';
-            for (let offset = -1; offset <= 1; offset++) {
-                const idx = currentIdx + offset;
-                if (idx < 0 || idx >= localLyrics.length) continue;
-                const line = document.createElement('div');
-                line.className = 'lyric-line';
-                if (offset === 0) {
-                    line.classList.add('current');
-                    line.textContent = localLyrics[idx].text;
-                } else if (offset === -1) {
-                    line.classList.add('prev');
-                    line.textContent = localLyrics[idx].text;
-                } else if (offset === 1) {
-                    line.classList.add('next');
-                    line.textContent = localLyrics[idx].text;
-                }
-                lyricsDiv.appendChild(line);
-            }
-        }
-
-        function setupLyricSync(audio, lrcPath) {
-            let localLyrics = [];
-            let localCurrentLine = -1;
-            loadLyrics(lrcPath).then(parsedLyrics => {
-                localLyrics = parsedLyrics;
+                    .filter(Boolean);
             });
 
-            let fadeTimeout = null;
-            function lyricSyncHandler() {
-                if (!localLyrics.length) return;
-                let i = 0;
-                if (audio.currentTime < localLyrics[0].time) {
-                    lyricsDiv.innerHTML = '';
-                    localCurrentLine = -1;
-                    return;
-                }
-                while (i < localLyrics.length - 1 && audio.currentTime >= localLyrics[i + 1].time) i++;
-                if (i !== localCurrentLine) {
-                    localCurrentLine = i;
-                    lyricsDiv.classList.remove('fade-in', 'fade-out');
-                    void lyricsDiv.offsetWidth;
-                    lyricsDiv.classList.add('fade-out');
-                    clearTimeout(fadeTimeout);
-                    fadeTimeout = setTimeout(() => {
-                        renderLyrics(localLyrics, i);
-                        lyricsDiv.classList.remove('fade-out');
-                        void lyricsDiv.offsetWidth;
-                        lyricsDiv.classList.add('fade-in');
-                    }, 200);
-                }
+        const music = document.getElementById('backgroundMusic');
+        music.addEventListener('timeupdate', () => {
+            if (!lyrics.length) return;
+            let i = 0;
+            while (i < lyrics.length - 1 && music.currentTime >= lyrics[i + 1].time) i++;
+            if (i !== currentLine) {
+                currentLine = i;
+                lyricsDiv.textContent = lyrics[i].text;
+                lyricsDiv.classList.remove('fade-in');
+                void lyricsDiv.offsetWidth;
+                lyricsDiv.classList.add('fade-in');
             }
-
-            audio.addEventListener('timeupdate', lyricSyncHandler);
-            audio._removeLyricSync = () => audio.removeEventListener('timeupdate', lyricSyncHandler);
-        }
-
-        setupLyricSync(music, 'music/wheels.lrc');
+        });
     </script>
 </body>
 </html>
