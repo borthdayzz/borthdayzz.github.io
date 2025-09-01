@@ -9,10 +9,36 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="other/index.css" />
+    <style>
+        body {
+            background: #c0392b;
+        }
+        #overlay {
+            background: rgba(255, 255, 255, 0.7);
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 1000;
+            cursor: pointer;
+        }
+        #snow-canvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .container, .credits {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
 </head>
 <body>
+    <canvas id="snow-canvas"></canvas>
     <div id="overlay" onclick="startWebsite()"></div>
     <div class="container">
+        <div id="christmas-countdown" style="text-align:center;font-size:1.5em;font-weight:bold;margin-bottom:16px;color:#fff;text-shadow:0 2px 8px #b22222;"></div>
         <p class="quote">The best way to predict the future is to create it.</p>
         <img src="images/cat.gif" alt="cat" class="gif">
         <div id="lyrics"></div>
@@ -22,53 +48,156 @@
         <p>Designed with <span>&#10084;</span></p>
     </footer>
 
-    <audio id="backgroundMusic" src="music/Wheels Fall Off.mp3" loop></audio>
+    <audio id="backgroundMusic" src="music/christmasss.flac"></audio>
 
     <script>
+        const canvas = document.getElementById('snow-canvas');
+        const ctx = canvas.getContext('2d');
+        let snowflakes = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        function createSnowflake() {
+            return {
+                x: Math.random() * canvas.width,
+                y: Math.random() * -canvas.height,
+                radius: Math.random() * 2 + 1,
+                speed: Math.random() * 1 + 0.5,
+                drift: (Math.random() - 0.5) * 0.5
+            };
+        }
+
+        function drawSnowflakes() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'white';
+            ctx.beginPath();
+            for (let flake of snowflakes) {
+                ctx.moveTo(flake.x, flake.y);
+                ctx.arc(flake.x, flake.y, flake.radius, 0, Math.PI * 2);
+            }
+            ctx.fill();
+        }
+
+        function updateSnowflakes() {
+            for (let flake of snowflakes) {
+                flake.y += flake.speed;
+                flake.x += flake.drift;
+                if (flake.y > canvas.height) {
+                    flake.x = Math.random() * canvas.width;
+                    flake.y = -flake.radius;
+                }
+                if (flake.x < 0) flake.x = canvas.width;
+                if (flake.x > canvas.width) flake.x = 0;
+            }
+        }
+
+        function snowLoop() {
+            if (snowflakes.length < 100) {
+                snowflakes.push(createSnowflake());
+            }
+            updateSnowflakes();
+            drawSnowflakes();
+            requestAnimationFrame(snowLoop);
+        }
+        snowLoop();
+
+        const music = document.getElementById('backgroundMusic');
+        const lyricsDiv = document.getElementById('lyrics');
+        let lyrics = [];
+        let currentLine = -1;
+        let songIndex = 0;
+        const songs = [
+            { src: 'music/christmasss.flac', lrc: 'music/christmas.lrc' },
+            { src: 'music/mariah.flac', lrc: 'music/mariah.lrc' }
+        ];
+
+        function loadLyrics(lrcPath) {
+            lyrics = [];
+            currentLine = -1;
+            lyricsDiv.textContent = '';
+            fetch(lrcPath)
+                .then(res => res.text())
+                .then(text => {
+                    lyrics = text.split('\n')
+                        .map(line => {
+                            const match = line.match(/\[(\d+):(\d+\.\d+)\](.*)/);
+                            if (match) {
+                                const min = parseInt(match[1], 10);
+                                const sec = parseFloat(match[2]);
+                                return {
+                                    time: min * 60 + sec,
+                                    text: match[3].trim()
+                                };
+                            }
+                            return null;
+                        })
+                        .filter(Boolean);
+                });
+        }
+
+        function playSong(index) {
+            songIndex = index;
+            music.src = songs[index].src;
+            loadLyrics(songs[index].lrc);
+            music.currentTime = 0;
+            music.play();
+        }
+
+        loadLyrics(songs[0].lrc);
+
+        music.addEventListener('ended', () => {
+            if (songIndex === 0) {
+                playSong(1);
+            }
+        });
+
+        music.addEventListener('timeupdate', () => {
+            if (!lyrics.length) return;
+            let i = -1;
+            while (i < lyrics.length - 1 && music.currentTime >= lyrics[i + 1].time) i++;
+            if (i !== currentLine) {
+                currentLine = i;
+                if (i >= 0) {
+                    lyricsDiv.textContent = lyrics[i].text;
+                    lyricsDiv.classList.remove('fade-in');
+                    void lyricsDiv.offsetWidth;
+                    lyricsDiv.classList.add('fade-in');
+                } else {
+                    lyricsDiv.textContent = '';
+                }
+            }
+        });
+
         function startWebsite() {
             document.getElementById('overlay').style.display = 'none';
             const container = document.querySelector('.container');
             container.classList.add('active');
-            const music = document.getElementById('backgroundMusic');
-            music.play();
+            playSong(0);
         }
 
-        const lyricsDiv = document.getElementById('lyrics');
-        let lyrics = [];
-        let currentLine = -1;
-
-        fetch('music/wheels.lrc')
-            .then(res => res.text())
-            .then(text => {
-                lyrics = text.split('\n')
-                    .map(line => {
-                        const match = line.match(/\[(\d+):(\d+\.\d+)\](.*)/);
-                        if (match) {
-                            const min = parseInt(match[1], 10);
-                            const sec = parseFloat(match[2]);
-                            return {
-                                time: min * 60 + sec,
-                                text: match[3].trim()
-                            };
-                        }
-                        return null;
-                    })
-                    .filter(Boolean);
-            });
-
-        const music = document.getElementById('backgroundMusic');
-        music.addEventListener('timeupdate', () => {
-            if (!lyrics.length) return;
-            let i = 0;
-            while (i < lyrics.length - 1 && music.currentTime >= lyrics[i + 1].time) i++;
-            if (i !== currentLine) {
-                currentLine = i;
-                lyricsDiv.textContent = lyrics[i].text;
-                lyricsDiv.classList.remove('fade-in');
-                void lyricsDiv.offsetWidth;
-                lyricsDiv.classList.add('fade-in');
+        function updateCountdown() {
+            const countdownDiv = document.getElementById('christmas-countdown');
+            const target = new Date('2025-12-25T00:00:00');
+            const now = new Date();
+            if (now >= target) {
+                countdownDiv.textContent = "Merry Christmas!";
+                return;
             }
-        });
+            const diff = target - now;
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((diff / (1000 * 60)) % 60);
+            const seconds = Math.floor((diff / 1000) % 60);
+            countdownDiv.textContent =
+                `Countdown to Christmas: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
     </script>
 </body>
 </html>
