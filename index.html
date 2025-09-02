@@ -40,7 +40,10 @@
     <div class="container">
         <div id="christmas-countdown" style="text-align:center;font-size:1.5em;font-weight:bold;margin-bottom:16px;color:#fff;text-shadow:0 2px 8px #b22222;"></div>
         <p class="quote">The best way to predict the future is to create it.</p>
-        <img src="images/cat.gif" alt="cat" class="gif">
+        <div id="cat-or-santa" style="text-align:center;">
+            <img src="images/cat.gif" alt="cat" class="gif" id="cat-gif" style="display:block;margin:0 auto;">
+            <video id="santa-video" src="videos/santa.mp4" loop style="display:none;margin:0 auto;max-width:80vw;max-height:60vh;z-index:2;background:transparent;" playsinline></video>
+        </div>
         <div id="lyrics"></div>
         <p class="email"><a href="mailto:borthdayzz@mailhaven.su">barf@mailhaven.su</a></p>
     </div>
@@ -108,36 +111,57 @@
 
         const music = document.getElementById('backgroundMusic');
         const lyricsDiv = document.getElementById('lyrics');
+        const catGif = document.getElementById('cat-gif');
+        const santaVideo = document.getElementById('santa-video');
         let lyrics = [];
         let currentLine = -1;
         let songIndex = 0;
         const songs = [
             { src: 'music/christmasss.flac', lrc: 'music/christmas.lrc' },
-            { src: 'music/mariah.flac', lrc: 'music/mariah.lrc' }
+            { src: 'music/mariah.flac', lrc: 'music/mariah.lrc' },
+            { src: 'music/silent_night.mp3', lrc: 'music/mariah.lrc' },
+            { src: 'music/gloria.mp3', lrc: 'music/mariah.lrc' },
+            { src: 'music/first_noel.mp3', lrc: 'music/mariah.lrc' },
+            { src: 'music/feliz.mp3', lrc: 'music/mariah.lrc' }
         ];
 
         function loadLyrics(lrcPath) {
             lyrics = [];
             currentLine = -1;
             lyricsDiv.textContent = '';
-            fetch(lrcPath)
-                .then(res => res.text())
-                .then(text => {
-                    lyrics = text.split('\n')
-                        .map(line => {
-                            const match = line.match(/\[(\d+):(\d+\.\d+)\](.*)/);
-                            if (match) {
-                                const min = parseInt(match[1], 10);
-                                const sec = parseFloat(match[2]);
-                                return {
-                                    time: min * 60 + sec,
-                                    text: match[3].trim()
-                                };
-                            }
-                            return null;
-                        })
-                        .filter(Boolean);
-                });
+            if (songIndex <= 1) {
+                fetch(lrcPath)
+                    .then(res => res.text())
+                    .then(text => {
+                        lyrics = text.split('\n')
+                            .map(line => {
+                                const match = line.match(/\[(\d+):(\d+\.\d+)\](.*)/);
+                                if (match) {
+                                    const min = parseInt(match[1], 10);
+                                    const sec = parseFloat(match[2]);
+                                    return {
+                                        time: min * 60 + sec,
+                                        text: match[3].trim()
+                                    };
+                                }
+                                return null;
+                            })
+                            .filter(Boolean);
+                    });
+            }
+        }
+
+        function showSantaVideo(show) {
+            if (show) {
+                santaVideo.style.display = 'block';
+                santaVideo.play();
+                catGif.style.display = 'none';
+            } else {
+                santaVideo.pause();
+                santaVideo.currentTime = 0;
+                santaVideo.style.display = 'none';
+                catGif.style.display = 'block';
+            }
         }
 
         function playSong(index) {
@@ -146,18 +170,29 @@
             loadLyrics(songs[index].lrc);
             music.currentTime = 0;
             music.play();
+            if (index >= 2 && index <= 5) {
+                showSantaVideo(true);
+            } else {
+                showSantaVideo(false);
+            }
         }
 
         loadLyrics(songs[0].lrc);
 
         music.addEventListener('ended', () => {
-            if (songIndex === 0) {
-                playSong(1);
+            if (songIndex < songs.length - 1) {
+                playSong(songIndex + 1);
+            } else {
+                showSantaVideo(false);
+                playSong(0);
             }
         });
 
         music.addEventListener('timeupdate', () => {
-            if (!lyrics.length) return;
+            if (!lyrics.length || songIndex > 1) {
+                lyricsDiv.textContent = '';
+                return;
+            }
             let i = -1;
             while (i < lyrics.length - 1 && music.currentTime >= lyrics[i + 1].time) i++;
             if (i !== currentLine) {
