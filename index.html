@@ -12,25 +12,33 @@
 </head>
 <body>
     <div id="overlay" onclick="startWebsite()"></div>
+
     <div class="container">
-        <p class="quote">The best way to predict the future is to create it.</p>
+        <p class="quote">“The best way to predict the future is to create it.”</p>
         <img src="images/cat.gif" alt="cat" class="gif">
         <div id="lyrics"></div>
-        <p class="email"><a href="mailto:borthdayzz@mailhaven.su">barf@mailhaven.su</a></p>
+        <p class="email"><a href="mailto:borthdayzz@mailhaven.su">borthdayzz@mailhaven.su</a></p>
     </div>
+
     <footer class="credits">
         <p>Designed with <span>&#10084;</span></p>
     </footer>
 
-    <audio id="backgroundMusic" src="music/THIRSTY.mp3" loop></audio>
+    <audio id="backgroundMusic" src="music/THIRSTY.mp3" loop preload="auto"></audio>
 
     <script>
         function startWebsite() {
-            document.getElementById('overlay').style.display = 'none';
+            const overlay = document.getElementById('overlay');
+            overlay.classList.add('hidden');
+            setTimeout(() => overlay.style.display = 'none', 600);
+            
             const container = document.querySelector('.container');
             container.classList.add('active');
+
             const music = document.getElementById('backgroundMusic');
-            music.play();
+            music.play().catch(() => {
+                alert("Click again to allow audio playback!");
+            });
         }
 
         const lyricsDiv = document.getElementById('lyrics');
@@ -54,6 +62,8 @@
                         return null;
                     })
                     .filter(Boolean);
+            })
+            .catch(() => {
             });
 
         const music = document.getElementById('backgroundMusic');

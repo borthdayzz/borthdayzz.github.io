@@ -1,19 +1,26 @@
 body {
     margin: 0;
     min-height: 100vh;
-    background: #000;
+    background: radial-gradient(circle at center, #0a0a0a 0%, #000 100%);
     font-family: 'Poppins', sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: #fff;
+    text-align: center;
+    overflow-x: hidden;
+    animation: fadeBody 1.2s ease forwards;
+}
+
+@keyframes fadeBody {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .container {
     max-width: 600px;
     width: 90%;
-    text-align: center;
     transform: translateY(30px);
     opacity: 0;
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
@@ -27,36 +34,34 @@ body {
 .quote {
     font-size: 1.8rem;
     font-weight: 300;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
     line-height: 1.5;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
+    animation: floatText 3s ease-in-out infinite;
 }
 
+@keyframes floatText {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* Updated GIF styling */
 .gif {
-    max-width: 240px;
-    border-radius: 4px;
+    max-width: 300px; /* slightly larger */
+    border-radius: 8px;
     margin: 2rem 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
 }
 
-.email a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-}
-
-.email a:hover {
-    opacity: 0.8;
-    transform: translateY(-1px);
+.gif:hover {
+    transform: scale(1.05);
 }
 
 #lyrics {
     font-size: 1.4rem;
-    margin: 3rem 0;
+    margin: 2.5rem 0;
+    min-height: 2em;
     opacity: 0;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 #lyrics.fade-in {
@@ -68,14 +73,27 @@ body {
     to { opacity: 1; }
 }
 
+.email a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.email a:hover {
+    opacity: 0.8;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
 .credits {
-    margin-top: 2rem;
+    margin-top: 3rem;
     font-size: 0.9rem;
     opacity: 0.7;
 }
 
 .credits span {
     color: #ff6b6b;
+    text-shadow: 0 0 8px rgba(255, 107, 107, 0.6);
 }
 
 #overlay {
@@ -84,24 +102,44 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.95);
+    background: rgba(0, 0, 0, 0.97);
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     z-index: 1000;
+    transition: opacity 0.6s ease;
+}
+
+#overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
 }
 
 #overlay::after {
     content: "Click anywhere to start";
     color: white;
-    font-size: 1.8rem;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 1.6rem;
+    letter-spacing: 1px;
     animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
-    0% { opacity: 0.5; }
-    50% { opacity: 1; }
-    100% { opacity: 0.5; }
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+}
+
+@media (max-width: 480px) {
+    .quote {
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+    }
+
+    .gif {
+        max-width: 220px;
+    }
+
+    .email a {
+        font-size: 1rem;
+    }
 }
