@@ -1,126 +1,107 @@
 body {
     margin: 0;
+    min-height: 100vh;
+    background: #000;
     font-family: 'Poppins', sans-serif;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background: black;
-    color: white;
-    overflow: hidden;
-    user-select: none;
+    color: #fff;
 }
 
 .container {
+    max-width: 600px;
+    width: 90%;
     text-align: center;
-    animation: fadeIn 2s ease-in-out;
-    filter: blur(10px);
-    transition: filter 0.5s ease, transform 0.5s ease;
-    transform: scale(0.9);
+    transform: translateY(30px);
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .container.active {
-    filter: blur(0);
-    transform: scale(1);
+    transform: translateY(0);
+    opacity: 1;
 }
 
 .quote {
-    font-size: 2.5rem;
-    font-weight: 600;
-    margin: 20px 0;
-    font-family: 'Montserrat', sans-serif;
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    font-size: 1.8rem;
+    font-weight: 300;
+    margin-bottom: 3rem;
+    line-height: 1.5;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .gif {
-    width: 400px;
-    height: 266px;
-    margin: 20px 0;
-    animation: pulse 1s infinite;
-}
-
-.email {
-    font-size: 1.2rem;
-    margin-top: 20px;
-    color: white;
+    max-width: 240px;
+    border-radius: 4px;
+    margin: 2rem 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .email a {
-    color: white;
+    color: #fff;
     text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .email a:hover {
-    color: #ffcc00;
-}
-
-.credits {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 0.9rem;
-    color: white;
-}
-
-.credits span {
-    color: #ff5555;
+    opacity: 0.8;
+    transform: translateY(-1px);
 }
 
 #lyrics {
-    text-align: center;
-    font-size: 2rem;
-    font-family: 'Montserrat', 'Poppins', sans-serif;
-    color: #fff;
-    text-shadow: 0 2px 8px #000, 0 0 2px #333;
-    margin: 24px 0 8px 0;
-    min-height: 2.5em;
-    transition: color 0.3s;
-    }
-    #lyrics.fade-in {
-        animation: fadeInLyric 0.7s;
-    }
-    @keyframes fadeInLyric {
-        from { opacity: 0; transform: translateY(10px);}
-        to   { opacity: 1; transform: translateY(0);}
+    font-size: 1.4rem;
+    margin: 3rem 0;
+    opacity: 0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+#lyrics.fade-in {
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.credits {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.credits span {
+    color: #ff6b6b;
 }
 
 #overlay {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    z-index: 10;
+    background: rgba(0, 0, 0, 0.95);
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    animation: fadeIn 2s ease-in-out;
+    z-index: 1000;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+#overlay::after {
+    content: "Click anywhere to start";
+    color: white;
+    font-size: 1.8rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-    100% {
-        transform: scale(1);
-    }
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
 }
