@@ -24,7 +24,7 @@
         <p>Designed with <span>&#10084;</span></p>
     </footer>
 
-    <audio id="backgroundMusic" src="music/THIRSTY.mp3" loop preload="auto"></audio>
+    <audio id="backgroundMusic" src="music/I WISH.flac" loop preload="auto"></audio>
 
     <script>
         function startWebsite() {
@@ -45,7 +45,7 @@
         let lyrics = [];
         let currentLine = -1;
 
-        fetch('music/')
+        fetch('music/I WISH.lrc')
             .then(res => res.text())
             .then(text => {
                 lyrics = text.split('\n')
